@@ -8,16 +8,62 @@
 \input{settings}
 
 % TODO: change thesis information
-\newcommand*{\getUniversity}{Technische Universität München}
-\newcommand*{\getFaculty}{Department of Informatics}
-\newcommand*{\getTitle}{Thesis title}
-\newcommand*{\getTitleGer}{Titel der Abschlussarbeit}
-\newcommand*{\getAuthor}{Author}
-\newcommand*{\getDoctype}{Thesis type (Bachelor's Thesis in Informatics, Master's Thesis in Robotics, \ldots)}
-\newcommand*{\getSupervisor}{Supervisor}
-\newcommand*{\getAdvisor}{Advisor}
-\newcommand*{\getSubmissionDate}{Submission date}
+\newcommand*{\getUniversity}{Techncal University of Munich}
+\newcommand*{\getFaculty}{ TUM School of Computation, Information and Technology }
+\newcommand*{\getTitle}{Fast Particle Buffering in AutoPas: Reducing Neighbor List Rebuild Time}
+\newcommand*{\getAuthor}{Xhulia Jasimi}
+\newcommand*{\getDoctype}{Bachelor's Thesis in Informatics}
+\newcommand*{\getSupervisor}{Univ.-Prof. Dr. Hans-Joachim Bungartz}
+\newcommand*{\getAdvisor}{M.Sc. Samuel James Newcome}
+\newcommand*{\getSubmissionDate}{17.02.2025}
 \newcommand*{\getSubmissionLocation}{Munich}
+
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption} % For subfigures
+\usepackage{float}  
+\usepackage[export]{adjustbox} 
+\usepackage{wrapfig}  % For wrapping figures around text
+\usepackage{array} 
+\usepackage{tabularx}
+
+\definecolor{commentgray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{keywordred}{rgb}{0.9, 0.3, 0.3}
+\definecolor{keyorange}{rgb}{0.9, 0.6, 0.3}
+
+\lstdefinestyle{cppstyle}{
+    language=C++,               % Set the language to C++
+    basicstyle=\ttfamily\small,  % Use typewriter font (monospaced)
+    keywordstyle=\color{blue},   % Keywords in blue
+    commentstyle=\color{green},  % Comments in green
+    stringstyle=\color{red},     % Strings in red
+    numbers=left,                % Line numbers on the left
+    numberstyle=\tiny\color{gray},  % Small, gray line numbers
+    frame=single,                % Frame around the code
+    breaklines=true,             % Automatically break long lines
+    tabsize=4,                   % Set the tab size to 4 spaces
+    captionpos=b                 % Caption below the code
+}
+
+\lstdefinestyle{mypython}{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{green},
+    commentstyle=\color{gray},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    breaklines=true,
+    showstringspaces=false,
+    frame=single,
+}
+% \bibliographystyle{plain}  % Use IEEE, apalike, etc., as needed
+% \bibliography{bibliography} 
 
 \begin{document}
 
@@ -38,10 +84,37 @@
 
 \mainmatter{}
 
-\input{chapters/01_introduction}
-% TODO: add more chapters here
+\input{chapters/intro.tex}
 
+
+\chapter{Theoretical Background}
+\input{chapters/theoback.tex}
+
+\chapter{Technical Background}
+\input{chapters/techback.tex}
+
+
+\chapter{Implementation}
+\input{chapters/impl.tex}
+
+\chapter{Performance}
+\input{chapters/performance.tex}
+
+%%% -----------2 - 3 pages ---------------
+\chapter{Future Work}
+\input{chapters/futurework.tex}
+
+\chapter{Conclusion}
+\input{chapters/concl.tex}
+
+
+\appendix
+\chapter{Appendix} \label{sec:appendix}
+\input{chapters/appendix.tex}
 \appendix{}
+
+
+
 
 \microtypesetup{protrusion=false}
 \listoffigures{}

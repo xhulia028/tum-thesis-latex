@@ -1,0 +1,442 @@
+% withtuning experiments
+%     - freq exp
+%     - iter exp
+%     - analyze
+% notuning exp
+%     - vlc c08
+%     - lc c08
+%     - vcl c06
+%     - why chosen? adv? how they work in tehcnical background
+% percentage expr
+%     - why only run in some of them
+%     - why still not performat
+%     - why chose to use spinodal all of a sudden 
+%     - idea to converge to DVL
+%     - is the slight improvement only a coincidence - repeating the tests many times
+%     - idea to increase the temperatur in spinodial decomp 
+% Profiler
+% add where to find the tests on github and such, also attach slurm job maybe
+%add in which cluster each experiment was ran on
+
+
+This chapter explores whether the use of the fast particle buffer provides measurable advantages by presenting the results of various experiments conducted under different scenarios. It details the experimental setup, including the working environment, explains the rationale behind the selection of specific experiments, and provides an analysis of the observed outcomes. Due to the high number of experiments conducted, only the most relevant graphs and data are presented here. However, the complete dataset, along with all scripts used for plotting and analysis, is available in the accompanying \href{https://github.com/xhulia028/GraphView}{\texttt{GitHub repository}}.
+
+% ======================================================================
+\section{Test System Specifications}
+
+The initial experiments were conducted on the CoolMUC2 Linux cluster at the Leibniz Supercomputing Centre (LRZ), TUM. This cluster operated on the SLES15 SP1 Linux OS and consisted of 812 nodes, each equipped with 28 cores running at a nominal frequency of 2.6 GHz with two hyperthreads per core \parencite{coolmuc2}. The \texttt{cm2\_tiny} partition was used for these experiments. Unfortunately, due to a severe hardware failure, CoolMUC2 was decommissioned during the course of this work.
+
+Subsequent experiments were performed on CoolMUC4, the successor to CoolMUC2. CoolMUC4 features Intel® Xeon® Platinum 8380 CPUs (Ice Lake) with 112 cores per node, 512 GB of RAM, and a nominal core frequency of 3.0 GHz (ranging from 0.8 to 4.2 GHz). It operates on the SLES15 SP6 Linux OS \parencite{coolmuc4}. The experiments were run on the \texttt{cm4\_tiny} partition.
+
+The code was compiled with GCC 11.2.0 in CoolMuc2 and GCC 12.2.0 in CoolMuc4. 
+
+
+% \textbf{MENTION PROFILER and the performance measurements are performed with VTune3 version 2021.7.1 (build
+% 619561).}
+
+% ======================================================================
+\section{Scenario descriptions}
+
+For the experiments, four different simulations were used, each chosen to assess the impact of the fast particle buffer under various conditions and provide a comprehensive evaluation of its performance.
+
+% \textbf{TESTS CAN BE FOUND IN GITHUB}
+% \textbf{Cite Luis' thesis for some of these details; the rest cite AutoPas.}
+
+
+\subsection{Falling Drop} 
+This experiment involves two objects: \texttt{CubeClosestPacked}, which represents a bed of particles, and a sphere of particles. At the start of the simulation, the sphere is accelerated by gravity and falls into the basin. Upon collision, the particles from the sphere mix with those in the basin. This experiment uses reflective boundaries and the Lennard-Jones AVX functor, containing over 15,000 particles. The default YAML configuration for this experiment is set to run for 15,000 iterations; however, as will be discussed later, this parameter is adjusted for specific tests. The initial and final states of the simulation are depicted below \ref{fig:fd}, illustrating the transition from the sphere's descent to the equilibrium state of the mixed particles.
+
+\subsection{Exploding Liquid} The second scenario describes an exploding liquid consisting of a highly compressed and heated liquid film suddenly exposed to a vacuum. This exposure causes the film to rapidly expand and disintegrate into thin filaments and droplets as it destabilizes \parencite{seckler2021autopas}. This experiment consists of approximately 3,800 particles and, by default, runs for 12,000 iterations. Unlike the first scenario, this simulation uses periodic boundaries. A visualization of the system before and after the explosion is provided in Figure~\ref{fig:exl},
+
+\subsection{Constant Velocity Cube} This scenario features a cube that moves at a nearly constant velocity and, by default, runs for 5000 iterations. The cube consists of approximately 50,000 particles, which do not interact with each other as dynamically as in the previous two scenarios. Reflective boundaries are employed in this experiment. Due to the minimal interaction between particles, this scenario was selected to examine the effects of a structured, uniform motion. The goal was to evaluate how the particle buffer performs in such conditions. A visual representation of the cube's motion over time can be found in Figure~\ref{fig:conc}.
+
+\subsection{Spinodal Decomposition Equilibration}
+% The fourth scenario examines equilibration. Initially, the system is prepared at a specified temperature and density, ensuring conditions suitable for equilibrium. A velocity-scaling thermostat is applied to regulate the temperature and bring the system to a stable state. During this process, interactions between particles are monitored to ensure proper thermalization and energy distribution. This simulation involves a large number of particles—over 4 million—, and runs for 100'000 iterations. This experiment was chosen due to the high and dynamic interactions between particles, resulting in a significant number of fast particles.
+
+The fourth scenario examines an equilibration simulation, where a GridBlock object populates the domain with particles. The simulation then runs for 100,000 iterations, allowing the particles to reach an equilibrium state. This scenario involves over four million particles and is characterized by high particle interaction dynamics, resulting in a substantial number of fast-moving particles. The evolution of the system to equilibrium is depicted in Figure~\ref{fig:equilibration}.
+
+% \subsection{Spinodal Decomposition Equilibration} The fourth scenario examines spinodal decomposition. Initially, the system is stabilized at a temperature above the critical point and a density near the critical value. A velocity-scaling thermostat is then applied to rapidly cool the system to a temperature well below the critical point. This sudden cooling causes the fluid to become unstable, leading to phase separation into vapor and liquid phases. This scenario involves a large number of particles—over 4 million—and was chosen due to the high and dynamic interactions between particles, resulting in a significant number of fast particles.
+
+% The fourth scenario examines spinodal decomposition equilibration. Initially, the system is stabilized at a temperature above the critical point and a density near the critical value. A velocity-scaling thermostat is then applied to rapidly cool the system to a temperature well below the critical point. This sudden cooling drives the system into an unstable state, leading to spontaneous phase separation into vapor and liquid regions. The simulation is run for a sufficiently long time to allow the system to reach a quasi-equilibrium state, where domain coarsening slows down, and phase-separated structures become more stable. This scenario involves a large number of particles—over 4 million—and was chosen due to the high level of particle interactions, which result in a significant number of fast-moving particles.
+
+
+\vspace{1em} 
+\vspace{1em} 
+\vspace{1em} 
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth} % Reserve half a row for the first picture
+    \centering
+    \includegraphics[width=0.9\linewidth]{imgs/fallingDrop.png} % Dynamically scale the image
+    \captionof{figure}{Falling Drop \parencite{gratl2022n}}
+    \label{fig:fd}
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth} % Reserve half a row for the second picture
+    \centering
+    \includegraphics[width=0.9\linewidth]{imgs/explodingLiquid.png} % Dynamically scale the image
+    \captionof{figure}{Exploding Liquid \parencite{seckler2021autopas}}
+    \label{fig:exl}
+\end{minipage}
+
+\vspace{1em} % Optional vertical space between rows
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth} % Reserve half a row for the third picture
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/constCube.png} % Dynamically scale the image
+    \captionof{figure}{Constant Cube}
+    \label{fig:conc}
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth} % Reserve half a row for the fourth picture
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/spinodalDecomp.png} % Dynamically scale the image
+    \captionof{figure}{Equilibration \parencite{Maximilian_Praus_Thesis-1.pdf}}
+    \label{fig:equilibration}
+\end{minipage}
+\vspace{1em} 
+\vspace{1em} 
+\vspace{1em} 
+
+
+% ======================================================================
+\section{Experimental Strategies and Findings}
+
+
+The primary objective was to evaluate the performance of the fast particle buffer by systematically modifying specific variables and observing its behavior across different scenarios. Additionally, the experiments aimed to assess the impact of these variables when applied in modified configurations of the same scenarios.
+
+The variables selected for modification included:
+\begin{itemize}
+    \item \textbf{Verlet Rebuild Frequency}: This variable was adjusted to identify an optimal frequency that maximizes the reuse of neighbor lists across iterations without compromising runtime performance. The goal was to determine how much the rebuild frequency could be extended to achieve a performance gain.
+    \item \textbf{Number of Particles}: The particle count was varied to analyze its influence on the buffer's efficiency, specifically examining whether smaller scenarios benefit from the buffer or if the improvements are primarily noticeable in larger configurations.
+    \item \textbf{Iteration Count}: By increasing the number of iterations, the experiments aimed to evaluate whether extending the runtime reduces the need for frequent neighbor list rebuilds in scenarios where only a few fast particles remain after the dynamic phase.
+\end{itemize}
+
+The initial approach involved running a broad range of experiments, systematically varying these parameters to identify patterns and correlations. Key metrics of interest included the number of particles in the container versus the buffer and the time spent in \texttt{computeInteractions} compared to \texttt{remainderTraversal}. 
+% The ultimate goal was to determine an ideal rebuild frequency and understand the relationship between these variables.
+
+\subsection{Initial Test Series}
+
+The initial series of experiments focused on analyzing frequency and iteration behavior across the first three scenarios.
+
+\subsubsection{Frequency Tests}
+
+Frequency tests were conducted by varying the rebuild frequency between 10 and 15,810. The objective was to evaluate the runtime behavior for typical low frequencies and higher frequencies exceeding the total number of iterations (effectively disabling rebuilds apart from tuning). A logarithmic distribution of frequencies was chosen to emphasize the analysis of larger frequencies. The following Python function illustrates the frequency selection logic:
+
+\begin{lstlisting}[style=mypython]
+def get_step_size(freq):
+    log_freq = math.log10(freq)
+    step_diff = max_step - min_step
+    step_size = min_step + (log_freq * step_diff / math.log10(end_freq))
+    return int(step_size)
+\end{lstlisting}
+
+For each frequency experiment, four types of graphs were generated to help interpret the results more effectively:
+
+\begin{enumerate}
+    \item A frequency vs. runtime graph comparing the performance of the parent branch \texttt{DynamicVLMerge} with the \texttt{Fast Particle Buffer} branch.
+    \item A graph highlighting the differences in \texttt{computeInteractions} runtime between the two branches.
+    \item A graph illustrating the differences in \texttt{remainderTraversal}.
+\end{enumerate}
+
+The results consistently showed that the fast particle buffer performed worse across all scenarios and frequencies:
+\begin{itemize}
+    \item For the Falling Drop scenario, the runtime ranged from 1.1 to 6 times slower. \ref{fig:tuningfallingDrop}
+    \item For the Exploding Liquid scenario, the runtime ranged from 1.1 to 4 times slower. \ref{fig:tuningexplodingLiquid}
+    \item For the Constant Velocity Cube scenario, the runtime ranged from 1.3 to 11.2 times slower. \ref{fig:tuningconstantVelocityCube}
+\end{itemize}
+
+To investigate the cause of this performance degradation, the focus was shifted to analyzing the graphs highlighting computeInteractions and remainderTraversal. However, these graphs were challenging to interpret due to significant spikes caused by the tuning phase. Tuning is the most computationally expensive part of the simulation, and its periodic spikes (determined by the tuning frequency) overshadowed the subtler runtime variations, making it difficult to analyze the true behavior of the buffer.
+
+
+% \begin{figure}[htbp]
+%     \centering
+%     \vspace{-0.5em}
+%     \begin{subfigure}[b]{\textwidth}
+%         \centering
+%         \includegraphics[width=0.9\linewidth]{graphs/fallingDrop/freqvstime.png}
+%         \vspace{-0.5em}
+%         \caption{\scriptsize Falling Drop}
+%         \label{fig:tuningfallingDrop}
+%     \end{subfigure}
+
+%     \begin{subfigure}[b]{\textwidth}
+%         \centering
+%         \includegraphics[width=0.9\linewidth]{graphs/explodingLiquid/freqvstime.png}
+%         \vspace{-0.5em}
+%         \caption{\scriptsize Exploding Liquid}
+%         \label{fig:tuningexplodingLiquid}
+%     \end{subfigure}
+
+%     \begin{subfigure}[b]{\textwidth}
+%         \centering
+%         \includegraphics[width=0.9\linewidth]{graphs/constantVelocityCube/freqvstime.png}
+%         \vspace{-0.5em}
+%         \caption{\scriptsize Constant Velocity Cube}
+%         \label{fig:tuningconstantVelocityCube}
+%     \end{subfigure}
+
+%     \vspace{1em}
+%     \caption{Comparison of Frequency vs Time with Tuning}
+%     \label{fig:main}
+% \end{figure}
+
+
+
+\subsubsection{Refined Tests Without Tuning Spikes}
+
+To better understand the program's behavior, the tuning phase was effectively eliminated by specifying exact configurations for the container and traversal. This ensured that the simulation used fixed setups without requiring tuning. Since testing all possible configurations was impractical, three key traversal-container combinations were selected:
+
+
+\begin{itemize}
+    \item \textbf{Traversal}: \texttt{vlc\_c08 / vlp\_c08}, \textbf{Container}: VerletListsCells, \textbf{Data Layout}: AoS, \\ \textbf{Newton3}: Enabled
+    \item \textbf{Traversal}: \texttt{vcl\_c06}, \textbf{Container}: VerletClusterLists, \textbf{Data Layout}: AoS, \\ \textbf{Newton3}: Enabled
+    \item \textbf{Traversal}: \texttt{lc\_c08}, \textbf{Container}: LinkedCellsReferences, \textbf{Data Layout}: SoA, \\ \textbf{Newton3}: Enabled
+\end{itemize}
+
+
+
+Frequency tests were then repeated for the first three scenarios using these fixed configurations. This approach eliminated tuning-related noise, allowing for a clearer analysis of how the buffer performed under different traversal and container setups. By isolating these configurations, it was possible to focus on the individual behaviors of each traversal and container, leading to more thorough insights into the implementation's performance.
+
+Upon examining the individual frequency versus time graphs that compare the different configurations across various scenarios (Figures \ref{fig:mainFallingDrop} \ref{fig:mainExplodingLiquid} \ref{fig:mainConstantVelocityCube}), the implementation with the fast particle buffer generally underperformed relative to the implementation without it.
+
+A unique case, however, is observed at frequency 10, where the Fast-Particle-Buffer branch performs nearly as well as the parent branch. This behavior occurs because, at such a low frequency, there are almost no fast particles; the neighbor lists are rebuilt so frequently that particles do not have sufficient time to accumulate in the buffer. 
+
+
+\paragraph{Falling Drop:}
+
+The runtime of the Fast-Particle-Buffer branch across all configurations was up to four times longer than that of the parent branch, Dynamic-VL-Merge (see Figure \ref{fig:mainFallingDrop}). This raises the question: what is the underlying cause of this difference in performance? 
+
+To investigate, we focus on the relationship between  compute interactions, remainder traversal (Fig.\ref{fig:vlcc08inter156}), and neighbor list rebuild times per iteration (Fig.\ref{fig:vlcc08_neighbour_156}), as well as the number of particles stored in the buffer per iteration (Fig.\ref{fig:vlcc08_buffer_size_156}).
+
+
+
+\begin{figure}[htbp]
+    \centering
+    % \vspace{-0.5em}
+    % \begin{subfigure}[b]{\textwidth}
+        % \centering
+        \includegraphics[width=0.9\linewidth]{graphs/fallingDrop/normalExperiments/freq/vlcc08inter156.png}
+        \vspace{-0.5em}
+        \caption{Compute interactions versus Remainder traversal Falling Drop Vlc\_c08}
+        \label{fig:vlcc08inter156}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    % \vspace{-0.5em}
+    % \begin{subfigure}[b]{\textwidth}
+        % \centering
+        \includegraphics[width=0.9\linewidth]{graphs/fallingDrop/normalExperiments/freq/vlcc08_neighbour_156.png}
+        \vspace{-0.5em}
+        \caption{Time spent rebuilding neighbor lists in Falling Drop Vlc\_c08}
+        \label{fig:vlcc08_neighbour_156}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    % \vspace{-0.5em}
+    % \begin{subfigure}[b]{\textwidth}
+        % \centering
+        \includegraphics[width=\linewidth]{graphs/fallingDrop/normalExperiments/freq/vlcc08_buffer_size_156.png}
+        \vspace{-0.5em}
+
+        \caption{Buffer Size throughout Iterations in Falling Drop Vlc\_c08}
+        \label{fig:vlcc08_buffer_size_156}
+\end{figure}
+
+
+
+Between iterations 2000 and 5000, there is a gradual accumulation of particles in the buffer, peaking at approximately 1798 particles around iteration 3850. Following this peak, the number of particles in the buffer starts to decline. This fluctuation is directly reflected in the remainder traversal time, which increases as the buffer fills up and decreases once particles start leaving the buffer. 
+
+While there is a reduction in the time spent on \texttt{computeInteractions} within the Fast-Particle-Buffer branch (due to particles being removed from the container), this saving is overshadowed by the significant increase in the time required for remainder traversal calculations. At its peak, the remainder traversal phase in the Fast-Particle-Buffer branch takes more time than the \texttt{computeInteractions} phase itself in the Dynamic-VL-Merge branch, where all particles are being considered. 
+
+One noticeable advantage of the Fast-Particle-Buffer approach is the reduction in neighbor list rebuild time, which takes an average four times less time compared to the Dynamic-VL-Merge branch (Fig.\ref{fig:vlcc08_neighbour_156}). However, the saved time does not compensate for the excessive time spent in remainder traversal. The combined savings from both reduced \texttt{computeInteractions} and neighbor list rebuilds are significantly smaller than the additional time required for remainder traversal.
+
+At the end of the experiment, the recorded execution times for key operations in both branches are as follows:
+
+\begin{itemize}
+    \item \textbf{Fast-Particle-Buffer:}
+    \begin{itemize}
+        \item \texttt{computeInteractions[ns]}: $45.74$ s
+        \item \texttt{remainderTraversal[ns]}: $23.40$ s
+        \item \texttt{rebuildNeighborLists[ns]}: $0.92$ s
+    \end{itemize}
+    \item \textbf{Dynamic-VL-Merge:}
+    \begin{itemize}
+        \item \texttt{computeInteractions[ns]}: $48.23$ s
+        \item \texttt{remainderTraversal[ns]}: $1.95$ s
+        \item \texttt{rebuildNeighborLists[ns]}: $3.73$ s
+    \end{itemize}
+\end{itemize}
+
+The higher the frequency, the more time is saved from avoiding neighbor list rebuilds. However, the rate at which remainder traversal time increases significantly outweighs the benefits. To illustrate, at frequency 15,810 (where rebuilding no longer occurs, as all particles are in the buffer), the theoretical maximum time savings from avoiding rebuilds is approximately $3.5 \times 10^5$ ns per iteration. However, the average remainder traversal time per iteration reaches approximately $1.38 \times 10^7$ ns, demonstrating that the overhead introduced by the buffer is vastly greater than the savings obtained from eliminating neighbor list rebuilds.
+
+\paragraph{Constant Velocity Cube:}
+
+The Constant Velocity Cube scenario exhibited similar behavior, where the fast particle buffer consistently underperformed compared to the counterpart (Fig. \ref{fig:mainConstantVelocityCube}). Performance differences ranged from:
+\begin{itemize}
+    \item 6 times slower for \texttt{vlp\_c08} (selected instead of \texttt{vlc\_c08}, as \texttt{vlp\_c08} was frequently chosen during tuning experiments due to its optimization for this scenario).
+    \item Up to 18 times slower for \texttt{lc\_c08}.
+    \item Approximately 4 times slower for \texttt{vcl\_c06}.
+\end{itemize}
+
+The reasoning for these results remains consistent: the time saved from infrequent neighbor list rebuilds is outweighed by the excessive computation time in remainder traversals.
+
+\paragraph{Exploding Liquid:}
+In the Exploding Liquid scenario, the traversals \texttt{lc\_c08} and \texttt{vlc\_c08} demonstrated similar performance trends to those observed in other scenarios (Fig. \ref{fig:mainExplodingLiquid}). However, an exception was noted in the \texttt{vcl\_c06} (Fig.\ref{fig:vclc06explodingLiquid}) traversal. During this traversal, the Dynamic VL Merge branch exhibited an average runtime nearly twice as long as the other two traversals, whereas the runtime of the Fast-Particle-Buffer branch increased only slightly in comparison.
+
+Analyzing frequencies between 10 and 2451, the Fast-Particle-Buffer branch outperformed the Dynamic VL Merge branch. The shortest runtime achieved by the Fast-Particle-Buffer branch was 37.88 seconds at frequency 265, whereas the lowest runtime for the Dynamic VL Merge branch within \texttt{vcl\_c06} was 39.2 seconds in iteration 9963. 
+
+
+A deeper analysis of the \texttt{computeInteractions} and \texttt{remainderTraversal} times provides insight into the underlying reason for this speedup. Unlike in other traversals, \texttt{computeInteractions} in the parent branch consumed significantly more time using \texttt{vcl\_c06}, whereas the remainder traversal time in the Fast-Particle-Buffer branch experienced changes that were not as drastic (Fig. \ref{fig:mainexplodingLiquid_inter}). This discrepancy led to a unique case where the increased computational cost of \texttt{computeInteractions} in the Dynamic VL Merge branch effectively offset the additional remainder traversal time in the Fast-Particle-Buffer branch. Consequently, for \texttt{vcl\_c06}, the Fast-Particle-Buffer branch gained a net advantage by reducing the cost of neighbor list rebuilds.
+
+However, while this might initially appear as a speedup, it is important to put the results into context. The lowest overall runtime across all traversal methods was not achieved by the Fast-Particle-Buffer branch but rather by the Dynamic VL Merge branch in other traversal configurations. This suggests that, although the Fast-Particle-Buffer branch outperformed the Dynamic VL Merge branch specifically for \texttt{vcl\_c06}, it was not the most efficient approach across all tested traversal methods. Therefore, while the buffer mechanism provided a performance gain in this isolated case, it did not lead to an overall improvement in execution time across the entire experiment.
+
+
+
+
+\subsubsection{Iteration Tests}
+
+
+For the iteration tests, a base frequency of 100 was maintained for the first two scenarios and 1000 for the third scenario. The number of iterations varied between 500 and 30,000, with a step size of 500 iterations. The goal of these experiments was to observe the behavior of fast particles at different stages of the simulation by increasing the number of iterations. This approach aimed to identify any correlations between simulation progression and the performance of the particle buffer implementation, as well as to expand the range of experiments conducted.
+
+Initially, as in the frequency tests, the first three scenarios were executed with tuning enabled. However, this did not provide sufficient insight into the performance of the fast particle branch. The results of these initial tests are presented in the appendix [\textbf{link appendix}].
+
+\subsubsection{Individual Test Results}
+
+\textbf{Falling Drop Scenario:}
+For the \texttt{vlc\_c08} traversal, no performance improvement was observed. Across all iteration counts, the fast particle buffer consistently performed worse than the Dynamic VL Merge branch. 
+
+The same trend was observed for \texttt{lc\_c08}. The remainder traversal phase required excessive time, negating any potential gains from avoiding neighbor list rebuilds. Thus, the time saved from fewer rebuilds was insufficient to offset the overhead introduced by the remainder traversal.
+
+[\textbf{Note: Include \texttt{computeInteractions} graphs for \texttt{vcl\_c08} and \texttt{vcl\_c06}}]
+
+In contrast, the \texttt{vcl\_c06} traversal demonstrated similar performance for both branches. In some cases, the fast particle buffer was 1--2 seconds faster. This can be explained by the runtime differences visible in the graphs below.  For \texttt{vcl\_c06}, \texttt{computeInteractions} required nearly four times more runtime than \texttt{vcl\_c08} (note the difference in scales: \texttt{vcl\_c06} has an ordinate axis in $e7$, while \texttt{vcl\_c08} is in $e6$). However, the remainder traversal times were comparable between the two. This outcome arises because the fast particle buffer, implemented as a vector of vectors, is not influenced by the container or traversal type. Despite the improved results in this specific experiment, no significant overall performance improvement was observed. Note that these graphs use a window average of 100 to reduce noise.
+
+% \begin{center}
+% \includegraphics[width=\linewidth]{graphs/fallingDrop/normalExperiments/iter/vclc06dvlfp.png}
+% \vspace{-0.4em}
+% \captionof{figure}{Compute Interactions and Remainder Traversal in Falling Drop \texttt{vcl\_c06}.}
+% \vspace{-0.4em}
+% \includegraphics[width=\linewidth]{graphs/fallingDrop/normalExperiments/iter/vlc08dvlfp.png}
+% \vspace{-0.4em}
+% \captionof{figure}{Compute Interactions and Remainder Traversal in Falling Drop \texttt{vlc\_c08}.}
+% \vspace{-0.4em}
+% \end{center}
+
+\begin{center}
+\includegraphics[width=\linewidth]{graphs/fallingDrop/normalExperiments/iter/vclc06dvlfp.png}
+\captionof{figure}{Compute Interactions and Remainder Traversal in falling drop vclc06}
+\end{center}
+
+\begin{center}
+\includegraphics[width=\linewidth]{graphs/fallingDrop/normalExperiments/iter/vlc08dvlfp.png}
+\captionof{figure}{Compute Interactions and Remainder Traversal in falling drop vlcc08}
+\end{center}
+
+\textbf{Exploding Liquid Scenario:}
+The results for this scenario followed a pattern similar to Falling Drop. The performance trends of the traversals were comparable between the two scenarios. However, anomalies were observed in the behavior of \texttt{vlc\_c08} and \texttt{vcl\_c06}, as indicated in the graphs [\textbf{link Exploding Liquid graphs}]. Missing lines in the graphs suggest that the experiment failed for certain iteration counts in both branches. Although there were spikes in \texttt{vlc\_c08}, where the fast particle buffer branch appeared to outperform the Dynamic VL Merge, the anomalies in the experiments render these results unreliable. Since both branches failed under certain conditions, these results cannot be considered valid. The \texttt{lc\_c08} traversal, however, exhibited stable behavior with no failed runs.
+
+\textbf{Constant Velocity Cube Scenario:}
+In this scenario, no performance improvement was observed for the fast particle buffer. Instead, the performance difference between the two branches was more pronounced compared to Falling Drop. For \texttt{lc\_c08}, the fast particle buffer was up to 16 times slower; for \texttt{vcl\_c06}, it was 4 times slower; and for \texttt{vlp\_c08}, it was around 3 times slower. [\textbf{Why is the performance so poor? Adjust the reasoning for choosing Constant Velocity Cube, as there is still significant particle interaction.}]
+
+This poor performance is due to the large number of particles accumulating in the buffer. For instance, in the experiment with 30,000 iterations, more than half of the total particles—around 28,000 out of 50,000—were in the buffer. This high number of particles in the buffer significantly increased the time required for remainder traversal. In the graph below, the runtime scale for remainder traversal is $e8$, while \texttt{computeInteractions} is on the $e7$ scale, showing a clear difference in time consumption.
+
+The issue lies in the difference in optimization between the buffer and the container. Containers and traversals are designed to be efficient and parallelized, allowing particles to be processed quickly. In contrast, the fast particle buffer is a simple vector of vectors and is not optimized in the same way, leading to much higher computation times for remainder traversal when many particles are stored in the buffer.
+
+\begin{center}
+\includegraphics[width=\linewidth]{graphs/constantVelocityCube/normalExperiments/iter/vlpc08dvlpb.png}
+\captionof{figure}{Compute Interactions and Remainder Traversal in Constant Velocity Cube \texttt{vlp\_c08}.}
+\end{center}
+
+
+% \clearpage
+\begin{figure}[htbp]
+    \centering
+    
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{graphs/fallingDrop/freqvstimeiter.png}
+        \caption{\scriptsize Frequency vs Time for Falling Drop}
+        \label{fig:fallingDrop}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{graphs/explodingLiquid/freqvstimeiter.png}
+        \caption{\scriptsize Frequency vs Time for Exploding Liquid}
+        \label{fig:explodingLiquid}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{graphs/constantVelocityCube/freqvstimeiter.png}
+        \caption{\scriptsize Frequency vs Time for Constant Velocity Cube}
+        \label{fig:constantVelocityCube}
+    \end{subfigure}
+
+    \caption{Comparison of Frequency vs Time for Different Simulations}
+    \label{fig:main}
+\end{figure}
+
+
+
+% percentage expr
+%     - why only run in some of them
+%     - why still not performat
+%     - why chose to use spinodal all of a sudden 
+%     - idea to converge to DVL
+%     - is the slight improvement only a coincidence - repeating the tests many times
+%     - idea to increase the temperatur in spinodial decomp 
+% Profiler
+% add where to find the tests on github and such, also attach slurm job maybe
+
+\subsection{Percentage Experiments}
+
+% Since the problem with the fast particle implemntation was that the remainder traversal takes significantly more time than the time saved from not doing the neighbor rebuilds so often, the idea was to decrease the number of particles that can gather in the buffer to a percentage of the total amount of the particles in the buffer, so that we ll have less particle to iterate through in the buffer, but still save neighbor lists rebuild time.  
+
+
+
+\subsection{Spinodal Decomposition Equilibration}
+
+Given that the observed performance speedup in earlier experiments ranged between only 1 to 2 seconds, it raises the question of whether these results were merely coincidental or indicative of actual improvement. To address this, percentage-based experiments were conducted for the fourth scenario, spinodal decomposition equilibration. The hypothesis was that, due to the highly dynamic nature of this scenario and its substantial number of particles (4 million), there would be noticeable performance improvements when using the particle buffer.
+
+From prior frequency experiments, it was observed that the particle buffer performed better at smaller frequencies. Therefore, this experiment focused on frequencies ranging from 10 to 50 with a step size of 10. Additionally, as established earlier, smaller thresholds tended to yield better results. Considering the large particle count in spinodal decomposition, initial tests were conducted with thresholds of 1\% and 5\% of the container’s particles. It is important to note that 1\% and 5\% of 4 million correspond to 40,000 and 200,000 particles, respectively, which exceed the total particle count of the other scenarios.
+
+\textbf{Results for \texttt{vlc\_c08}:}  
+This scenario was particularly demanding, with an average runtime of 9 hours and 59 minutes for the Dynamic VL Merge branch. When the threshold was set to 5\%, the fast particle buffer demonstrated a performance improvement of 4.2\% (equivalent to saving 25 minutes) at frequency 30. At frequency 20, the improvement was 2.5\% (saving 15 minutes). For frequency 10, the runtime was marginally worse by 1\%. However, for larger frequencies, such as 40 and 50, there was a significant slowdown of 44\% and 111\%, respectively.
+
+For the 1\% threshold, fluctuations were less pronounced compared to the 5\% threshold. The runtime for all frequencies was closer to that of the Dynamic VL Merge branch. A performance improvement of 2.2\% (equivalent to 13 minutes) was observed at frequency 20, and 3\% (18 minutes) at frequency 30. For frequencies 10 and 50, the runtime was nearly identical to the parent branch, differing by only ±1 minute. At frequency 40, there was a minor slowdown of 1\% (6 minutes), which is relatively insignificant.
+
+Overall, the fastest runtime for this experiment was achieved with the fast particle buffer using a 5\% threshold at frequency 30, taking 9 hours and 33 minutes. The second-best runtime was achieved by the fast particle buffer with a 1\% threshold, which took 6 minutes longer (9 hours and 39 minutes). The lowest runtime for the Dynamic VL Merge branch was observed at frequency 40, with a runtime of 9 hours and 47 minutes. Across all frequencies and branches, the speedup achieved by the fast particle buffer, compared to the fastest Dynamic VL Merge result, was 14 minutes, focusing on achieving the fastest overall simulation runtime regardless of frequency.
+
+\textbf{Results for \texttt{lc\_c08}:}  
+Using LinkedCellsReferences with traversal \texttt{lc\_c08}, the average runtime for the Dynamic VL Merge branch was 14 hours and 27 minutes, approximately 4 hours and 30 minutes longer than the \texttt{vlc\_c08} configuration. At the 5\% threshold, a performance improvement of 2.3\% (20 minutes) was observed at frequency 30. For all other frequencies, the runtime ranged from -0.95\% to 0.29\% compared to the Dynamic VL Merge branch, indicating negligible differences.
+
+For the 1\% threshold, a more notable improvement was observed at frequency 30, with a 2.3\% improvement (20 minutes). For the remaining frequencies, the runtime was very similar to the parent branch, fluctuating between -0.96\% and 0.29\% of the respective Dynamic VL Merge runtimes.
+
+For this container-traversal combination, the fastest experiment overall was achieved using the fast particle buffer with a 1\% threshold at frequency 30, resulting in a runtime of 14 hours and 4 minutes.
+
+\textbf{Summary:}  
+The results demonstrate that performance improvements using the fast particle buffer are highly scenario- and configuration-dependent. While significant speedups were observed at specific thresholds and frequencies, the benefits diminished or reversed at higher frequencies or with larger thresholds. The experiment highlights the importance of fine-tuning parameters to achieve optimal performance, especially in highly dynamic scenarios with large particle counts.
+
+
+
+\subsubsection{Spinodal Decomposition with Increased Temperature}
+
+To further amplify the number of fast particles and make the experiment more dynamic, the temperature of the system in the spinodal decomposition equilibration scenario was increased. This adjustment resulted in molecules with higher kinetic energy, thereby increasing their speed. The focus of this experiment was on frequencies 10, 20, and 30. The YAML file used for this setup can be found in the appendix [\textbf{link YAML file in the appendix}].
+
+In this configuration, the fast particle buffer with a threshold of 1\% achieved an 8.6\% performance improvement at frequency 10. This translates to a time saving of 60 minutes from a total runtime of 11 hours and 42 minutes. Similarly, the fast particle buffer with a threshold of 5\% exhibited a 7.8\% performance improvement at the same frequency, resulting in a 55-minute reduction from the same total runtime.
+
+For the remaining frequencies, neither version of the fast particle buffer outperformed the Dynamic VL Merge branch. However, the overall fastest experiment was the fast particle buffer with a threshold of 1\%, which achieved a 47-minute improvement compared to the fastest version of the Dynamic VL Merge branch at frequency 30.
+
+\begin{center}
+\includegraphics[width=0.6\linewidth]{graphs/spinodalDecomposition/vlcc08_increased.png}
+\captionof{figure}{Iterations vs Time for Equilibration vlc\_c08 [\textbf{CHANGE GRAPH: include newer frequencies}]}
+\end{center}
+
+
+\section{Checkpoint Experiments}
+
+\section{Hardware differences}
+

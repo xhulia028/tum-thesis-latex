@@ -1,0 +1,32 @@
+\babel@toc {american}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Example listing}}{1}{figure.caption.3}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Lennard-Jones Potential \blx@tocontentsinit {0}\parencite {inproceedings}}}{3}{figure.caption.8}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Neighbor identification algorithms \blx@tocontentsinit {0}\parencite {gratl2022n}}}{8}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Base Steps Approaches \blx@tocontentsinit {0}\parencite {newcome2023towards}}}{9}{figure.caption.32}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Falling Drop \blx@tocontentsinit {0}\parencite {gratl2022n}}}{20}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Exploding Liquid \blx@tocontentsinit {0}\parencite {seckler2021autopas}}}{20}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Constant Cube}}{20}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Equilibration \blx@tocontentsinit {0}\parencite {Maximilian_Praus_Thesis-1.pdf}}}{20}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Compute interactions versus Remainder traversal Falling Drop Vlc\_c08}}{23}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Time spent rebuilding neighbor lists in Falling Drop Vlc\_c08}}{24}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Buffer Size throughout Iterations in Falling Drop Vlc\_c08}}{24}{figure.caption.45}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Compute Interactions and Remainder Traversal in falling drop vclc06}}{28}{figure.5.8}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Compute Interactions and Remainder Traversal in falling drop vlcc08}}{28}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Compute Interactions and Remainder Traversal in Constant Velocity Cube \texttt {vlp\_c08}.}}{30}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Comparison of Frequency vs Time for Different Simulations}}{31}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Iterations vs Time for Equilibration vlc\_c08 [\textbf {CHANGE GRAPH: include newer frequencies}]}}{34}{figure.5.12}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Comparison of Frequency vs Time for Falling Drop Experiments}}{38}{figure.caption.57}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Comparison of Frequency vs Time for Exploding Liquid Experiments}}{39}{figure.caption.58}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Comparison of Frequency vs Time for Constant Velocity Cube Experiments}}{40}{figure.caption.59}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Comparison of Compute Interactions and Remainder Traversal for Exploding Liquid Experiments}}{41}{figure.caption.60}%
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

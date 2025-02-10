@@ -1,0 +1,645 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{aktulga2012parallel}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=bdab9808340c84661623c3e921a0904a}{%
+           family={Aktulga},
+           familyi={A\bibinitperiod},
+           given={Hasan\bibnamedelima Metin},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3429a851fce4d07d8d3fef6a3b5985f9}{%
+           family={Fogarty},
+           familyi={F\bibinitperiod},
+           given={Joseph\bibnamedelima C},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d681540330088e4e31ac67b557a5bb14}{%
+           family={Pandit},
+           familyi={P\bibinitperiod},
+           given={Sagar\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c66700afc0c5eea6996bf4d11b361f6a}{%
+           family={Grama},
+           familyi={G\bibinitperiod},
+           given={Ananth\bibnamedelima Y},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{1f683e3b3c0660471c99ccd6c76d9f5b}
+      \strng{fullhash}{1f683e3b3c0660471c99ccd6c76d9f5b}
+      \strng{bibnamehash}{1f683e3b3c0660471c99ccd6c76d9f5b}
+      \strng{authorbibnamehash}{1f683e3b3c0660471c99ccd6c76d9f5b}
+      \strng{authornamehash}{1f683e3b3c0660471c99ccd6c76d9f5b}
+      \strng{authorfullhash}{1f683e3b3c0660471c99ccd6c76d9f5b}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{parallel computing}
+      \field{number}{4-5}
+      \field{title}{Parallel reactive molecular dynamics: Numerical methods and algorithmic techniques}
+      \field{volume}{38}
+      \field{year}{2012}
+      \field{pages}{245\bibrangedash 259}
+      \range{pages}{15}
+    \endentry
+    \entry{coolmuc2}{online}{}
+      \list{organization}{1}{%
+        {Leibniz Supercomputing Centre (LRZ)}%
+      }
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{title}{CoolMUC-2 Documentation}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://doku.lrz.de/coolmuc-2-11484376.html
+      \endverb
+      \verb{url}
+      \verb https://doku.lrz.de/coolmuc-2-11484376.html
+      \endverb
+    \endentry
+    \entry{coolmuc4}{online}{}
+      \list{organization}{1}{%
+        {Leibniz Supercomputing Centre (LRZ)}%
+      }
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{title}{CoolMUC-4 Documentation}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://doku.lrz.de/coolmuc-4-1082337877.html
+      \endverb
+      \verb{url}
+      \verb https://doku.lrz.de/coolmuc-4-1082337877.html
+      \endverb
+    \endentry
+    \entry{AutoPasDocs}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9d4b3bebb4da8230f2c98c822de651f3}{%
+           family={Developers},
+           familyi={D\bibinitperiod},
+           given={AutoPas},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9d4b3bebb4da8230f2c98c822de651f3}
+      \strng{fullhash}{9d4b3bebb4da8230f2c98c822de651f3}
+      \strng{bibnamehash}{9d4b3bebb4da8230f2c98c822de651f3}
+      \strng{authorbibnamehash}{9d4b3bebb4da8230f2c98c822de651f3}
+      \strng{authornamehash}{9d4b3bebb4da8230f2c98c822de651f3}
+      \strng{authorfullhash}{9d4b3bebb4da8230f2c98c822de651f3}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{https://autopas.github.io/doxygen_documentation/git-master/}}
+      \field{title}{AutoPas Documentation}
+      \field{year}{2024}
+    \endentry
+    \entry{inproceedings}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=045db3bb3383ec5f7ba4604148db6745}{%
+           family={Eder},
+           familyi={E\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c79a833ffdf7c4e9a63a0ee4dd3cc73f}{%
+           family={Vorlaufer},
+           familyi={V\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=65c7d08d65c69d9fc318fefa6845b777}{%
+           family={Ilincic},
+           familyi={I\bibinitperiod},
+           given={Sladjan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18229090d102029780ea4a9312ea4b3e}{%
+           family={Betz},
+           familyi={B\bibinitperiod},
+           given={Gerhard},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ebd32b2a80892b85daaff46ab22c4b93}
+      \strng{fullhash}{ebd32b2a80892b85daaff46ab22c4b93}
+      \strng{bibnamehash}{ebd32b2a80892b85daaff46ab22c4b93}
+      \strng{authorbibnamehash}{ebd32b2a80892b85daaff46ab22c4b93}
+      \strng{authornamehash}{ebd32b2a80892b85daaff46ab22c4b93}
+      \strng{authorfullhash}{ebd32b2a80892b85daaff46ab22c4b93}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{Simulation of Wear Processes Using Molecular Dynamics (MD) Simulations}
+      \field{year}{2007}
+      \verb{doi}
+      \verb 10.13140/2.1.4149.5680
+      \endverb
+    \endentry
+    \entry{frautschi1986mechanical}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=eba5bb9f5bb22b48fa7daec67e08ae85}{%
+           family={Frautschi},
+           familyi={F\bibinitperiod},
+           given={Steven\bibnamedelima C},
+           giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{eba5bb9f5bb22b48fa7daec67e08ae85}
+      \strng{fullhash}{eba5bb9f5bb22b48fa7daec67e08ae85}
+      \strng{bibnamehash}{eba5bb9f5bb22b48fa7daec67e08ae85}
+      \strng{authorbibnamehash}{eba5bb9f5bb22b48fa7daec67e08ae85}
+      \strng{authornamehash}{eba5bb9f5bb22b48fa7daec67e08ae85}
+      \strng{authorfullhash}{eba5bb9f5bb22b48fa7daec67e08ae85}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The mechanical universe: Mechanics and heat}
+      \field{year}{1986}
+    \endentry
+    \entry{gratl2022n}{article}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=0c0da6b3f104d2a5014f5fa5065979b6}{%
+           family={Gratl},
+           familyi={G\bibinitperiod},
+           given={Fabio\bibnamedelima Alexander},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=509cdf8a86edbfcb9b879bc1acaa953e}{%
+           family={Seckler},
+           familyi={S\bibinitperiod},
+           given={Steffen},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26eafa3a34098b617e2a5381e1d2e42c}{%
+           family={Bungartz},
+           familyi={B\bibinitperiod},
+           given={Hans-Joachim},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5874df667c3bb432c96a057948be9843}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{42432dc842513a65ffb96af78adc82c9}
+      \strng{fullhash}{42432dc842513a65ffb96af78adc82c9}
+      \strng{bibnamehash}{42432dc842513a65ffb96af78adc82c9}
+      \strng{authorbibnamehash}{42432dc842513a65ffb96af78adc82c9}
+      \strng{authornamehash}{42432dc842513a65ffb96af78adc82c9}
+      \strng{authorfullhash}{42432dc842513a65ffb96af78adc82c9}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer Physics Communications}
+      \field{title}{N ways to simulate short-range particle systems: Automated algorithm selection with the node-level library AutoPas}
+      \field{volume}{273}
+      \field{year}{2022}
+      \field{pages}{108262}
+      \range{pages}{1}
+    \endentry
+    \entry{gratl2019autopas}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=1,uniquepart=given,hash=0c0da6b3f104d2a5014f5fa5065979b6}{%
+           family={Gratl},
+           familyi={G\bibinitperiod},
+           given={Fabio\bibnamedelima Alexander},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=509cdf8a86edbfcb9b879bc1acaa953e}{%
+           family={Seckler},
+           familyi={S\bibinitperiod},
+           given={Steffen},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=337d7d17c666067217596143fbbddb3c}{%
+           family={Tchipev},
+           familyi={T\bibinitperiod},
+           given={Nikola},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26eafa3a34098b617e2a5381e1d2e42c}{%
+           family={Bungartz},
+           familyi={B\bibinitperiod},
+           given={Hans-Joachim},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5874df667c3bb432c96a057948be9843}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{a76226e3857905df1274486bb4629d07}
+      \strng{fullhash}{9ce14601c796eec33c09a3f8bd7b0513}
+      \strng{bibnamehash}{9ce14601c796eec33c09a3f8bd7b0513}
+      \strng{authorbibnamehash}{9ce14601c796eec33c09a3f8bd7b0513}
+      \strng{authornamehash}{a76226e3857905df1274486bb4629d07}
+      \strng{authorfullhash}{9ce14601c796eec33c09a3f8bd7b0513}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 IEEE International Parallel and Distributed Processing Symposium Workshops (IPDPSW)}
+      \field{title}{Autopas: Auto-tuning for particle simulations}
+      \field{year}{2019}
+      \field{pages}{748\bibrangedash 757}
+      \range{pages}{10}
+    \endentry
+    \entry{jones1924determination}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=dbd0764cb57f87952e983a19948eac69}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={John\bibnamedelima Edward},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {The Royal Society London}%
+      }
+      \strng{namehash}{dbd0764cb57f87952e983a19948eac69}
+      \strng{fullhash}{dbd0764cb57f87952e983a19948eac69}
+      \strng{bibnamehash}{dbd0764cb57f87952e983a19948eac69}
+      \strng{authorbibnamehash}{dbd0764cb57f87952e983a19948eac69}
+      \strng{authornamehash}{dbd0764cb57f87952e983a19948eac69}
+      \strng{authorfullhash}{dbd0764cb57f87952e983a19948eac69}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character}
+      \field{number}{738}
+      \field{title}{On the determination of molecular fields.—II. From the equation of state of a gas}
+      \field{volume}{106}
+      \field{year}{1924}
+      \field{pages}{463\bibrangedash 477}
+      \range{pages}{15}
+    \endentry
+    \entry{knapek2007numerical}{misc}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7435490725b7033b071f205a9a0cb3e0}{%
+           family={Knapek},
+           familyi={K\bibinitperiod},
+           given={M\bibnamedelima Griebel\bibnamedelima S},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2982c88d98046b123be1036b979bf90}{%
+           family={Zumbusch},
+           familyi={Z\bibinitperiod},
+           given={G},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag Berlin Heidelberg}%
+      }
+      \strng{namehash}{14f7e65233054d807a46ebc18b5803b0}
+      \strng{fullhash}{14f7e65233054d807a46ebc18b5803b0}
+      \strng{bibnamehash}{14f7e65233054d807a46ebc18b5803b0}
+      \strng{authorbibnamehash}{14f7e65233054d807a46ebc18b5803b0}
+      \strng{authornamehash}{14f7e65233054d807a46ebc18b5803b0}
+      \strng{authorfullhash}{14f7e65233054d807a46ebc18b5803b0}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Numerical Simulation in Molecular Dynamics, Numerics, Algorithms, Parallelization, Applications}
+      \field{year}{2007}
+    \endentry
+    \entry{kukol2008molecular}{book}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cd0cdba447a389313ddc1f90a6a5a700}{%
+           family={Kukol},
+           familyi={K\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5faa1a4ccc36f71b8a58534d319678db}
+      \strng{fullhash}{5faa1a4ccc36f71b8a58534d319678db}
+      \strng{bibnamehash}{5faa1a4ccc36f71b8a58534d319678db}
+      \strng{authorbibnamehash}{5faa1a4ccc36f71b8a58534d319678db}
+      \strng{authornamehash}{5faa1a4ccc36f71b8a58534d319678db}
+      \strng{authorfullhash}{5faa1a4ccc36f71b8a58534d319678db}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Molecular modeling of proteins}
+      \field{volume}{443}
+      \field{year}{2008}
+      \field{pages}{3\bibrangedash 4}
+      \range{pages}{2}
+    \endentry
+    \entry{latex}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5d77435450d10a850a5b58577b9a456b}{%
+           family={Lamport},
+           familyi={L\bibinitperiod},
+           given={Leslie},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley Professional}%
+      }
+      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LaTeX : A Documentation Preparation System User's Guide and Reference Manual}
+      \field{year}{1994}
+    \endentry
+    \entry{newcome2023towards}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=58f0445a790a34013d0fb28e06025e9c}{%
+           family={Newcome},
+           familyi={N\bibinitperiod},
+           given={Samuel\bibnamedelima James},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=0c0da6b3f104d2a5014f5fa5065979b6}{%
+           family={Gratl},
+           familyi={G\bibinitperiod},
+           given={Fabio\bibnamedelima Alexander},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=5874df667c3bb432c96a057948be9843}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26eafa3a34098b617e2a5381e1d2e42c}{%
+           family={Bungartz},
+           familyi={B\bibinitperiod},
+           given={Hans-Joachim},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{2088de9d33df8729bd19e87cae439a0a}
+      \strng{fullhash}{2088de9d33df8729bd19e87cae439a0a}
+      \strng{bibnamehash}{2088de9d33df8729bd19e87cae439a0a}
+      \strng{authorbibnamehash}{2088de9d33df8729bd19e87cae439a0a}
+      \strng{authornamehash}{2088de9d33df8729bd19e87cae439a0a}
+      \strng{authorfullhash}{2088de9d33df8729bd19e87cae439a0a}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational and Applied Mathematics}
+      \field{title}{Towards auto-tuning Multi-Site Molecular Dynamics simulations with AutoPas}
+      \field{volume}{433}
+      \field{year}{2023}
+      \field{pages}{115278}
+      \range{pages}{1}
+    \endentry
+    \entry{Maximilian_Praus_Thesis-1.pdf}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f2321a4bbda5aa9b63d69a510e343dc3}{%
+           family={Praus},
+           familyi={P\bibinitperiod},
+           given={Maximilian},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Technical University of Munich}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{f2321a4bbda5aa9b63d69a510e343dc3}
+      \strng{fullhash}{f2321a4bbda5aa9b63d69a510e343dc3}
+      \strng{bibnamehash}{f2321a4bbda5aa9b63d69a510e343dc3}
+      \strng{authorbibnamehash}{f2321a4bbda5aa9b63d69a510e343dc3}
+      \strng{authornamehash}{f2321a4bbda5aa9b63d69a510e343dc3}
+      \strng{authorfullhash}{f2321a4bbda5aa9b63d69a510e343dc3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{Energy-Efficient Molecular Dynamics Simulations: Implementing Hardware-Agnostic Energy Measurement and Evaluating Runtime-Energy Tradeoffs}
+      \field{type}{mathesis}
+      \field{year}{2024}
+      \keyw{AutoPas,HPC,Energy,PMT,Molecular Dynamics}
+    \endentry
+    \entry{seckler2021autopas}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=509cdf8a86edbfcb9b879bc1acaa953e}{%
+           family={Seckler},
+           familyi={S\bibinitperiod},
+           given={Steffen},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=66c9388b3e24eb140b76a9718fbc2812}{%
+           family={Gratl},
+           familyi={G\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=118a8e94b9f698890bbe077e351ec424}{%
+           family={Heinen},
+           familyi={H\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=465fe6ecba0d7f7adecc4040b005fb5d}{%
+           family={Vrabec},
+           familyi={V\bibinitperiod},
+           given={Jadran},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26eafa3a34098b617e2a5381e1d2e42c}{%
+           family={Bungartz},
+           familyi={B\bibinitperiod},
+           given={Hans-Joachim},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5874df667c3bb432c96a057948be9843}{%
+           family={Neumann},
+           familyi={N\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{bb89ee644a4b7d9e4cc252614138f1fc}
+      \strng{fullhash}{a7517b4bab2d349270ecbc7ee92eb9e5}
+      \strng{bibnamehash}{a7517b4bab2d349270ecbc7ee92eb9e5}
+      \strng{authorbibnamehash}{a7517b4bab2d349270ecbc7ee92eb9e5}
+      \strng{authornamehash}{bb89ee644a4b7d9e4cc252614138f1fc}
+      \strng{authorfullhash}{a7517b4bab2d349270ecbc7ee92eb9e5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational Science}
+      \field{title}{AutoPas in ls1 mardyn: Massively parallel particle simulations with node-level auto-tuning}
+      \field{volume}{50}
+      \field{year}{2021}
+      \field{pages}{101296}
+      \range{pages}{1}
+    \endentry
+    \entry{wang2020lennard}{article}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=0eaa71dd159a8d7d2c8311ba7a799e43}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xipeng},
+           giveni={X\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=7747f925a8758111f89d7f0fa508ad1c}{%
+           family={Ramírez-Hinestrosa},
+           familyi={R\bibinithyphendelim H\bibinitperiod},
+           given={Simón},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bd1d18b204aeb1f401a8ac189cea678a}{%
+           family={Dobnikar},
+           familyi={D\bibinitperiod},
+           given={Jure},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7191fa8dca47b12000be59cbab02be45}{%
+           family={Frenkel},
+           familyi={F\bibinitperiod},
+           given={Daan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Royal Society of Chemistry}%
+      }
+      \strng{namehash}{6906243ea5124946372bafa582913501}
+      \strng{fullhash}{6906243ea5124946372bafa582913501}
+      \strng{bibnamehash}{6906243ea5124946372bafa582913501}
+      \strng{authorbibnamehash}{6906243ea5124946372bafa582913501}
+      \strng{authornamehash}{6906243ea5124946372bafa582913501}
+      \strng{authorfullhash}{6906243ea5124946372bafa582913501}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Chemistry Chemical Physics}
+      \field{number}{19}
+      \field{title}{The Lennard-Jones potential: when (not) to use it}
+      \field{volume}{22}
+      \field{year}{2020}
+      \field{pages}{10624\bibrangedash 10633}
+      \range{pages}{10}
+    \endentry
+    \entry{yao2004improved}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=60e7d94835bcd9e74054aa4ced73619b}{%
+           family={Yao},
+           familyi={Y\bibinitperiod},
+           given={Zhenhua},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=226459c8fdcaf228b278cd085d0e65a6}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jian-Sheng},
+           giveni={J\bibinithyphendelim S\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=e50ee6a0e6ac8f164c39b3ad6d6133f6}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Gui-Rong},
+           giveni={G\bibinithyphendelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=80f5194816d6581b5a4ddb3d98b8e78a}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{79d5317b948a6f84893e40fed9373dba}
+      \strng{fullhash}{79d5317b948a6f84893e40fed9373dba}
+      \strng{bibnamehash}{79d5317b948a6f84893e40fed9373dba}
+      \strng{authorbibnamehash}{79d5317b948a6f84893e40fed9373dba}
+      \strng{authornamehash}{79d5317b948a6f84893e40fed9373dba}
+      \strng{authorfullhash}{79d5317b948a6f84893e40fed9373dba}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer physics communications}
+      \field{number}{1-2}
+      \field{title}{Improved neighbor list algorithm in molecular simulations using cell decomposition and data sorting method}
+      \field{volume}{161}
+      \field{year}{2004}
+      \field{pages}{27\bibrangedash 35}
+      \range{pages}{9}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
