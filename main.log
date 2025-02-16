@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.1.13)  13 FEB 2025 19:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.1.13)  16 FEB 2025 20:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -915,33 +915,41 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count458
 \l__lipsum_a_int=\count459
 \l__lipsum_b_int=\count460
- (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/share/texlive/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box71
+\UL@hyphenbox=\box72
+\UL@skip=\skip92
+\UL@hook=\toks45
+\UL@height=\dimen298
+\UL@pe=\count461
+\UL@pixel=\dimen299
+\ULC@box=\box73
+Package: ulem 2019/11/18
+\ULdepth=\dimen300
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
-\c@tracingmulticols=\count461
-\mult@box=\box71
-\multicol@leftmargin=\dimen298
-\c@unbalance=\count462
-\c@collectmore=\count463
-\doublecol@number=\count464
-\multicoltolerance=\count465
-\multicolpretolerance=\count466
-\full@width=\dimen299
-\page@free=\dimen300
-\premulticols=\dimen301
-\postmulticols=\dimen302
-\multicolsep=\skip92
-\multicolbaselineskip=\skip93
-\partial@page=\box72
-\last@line=\box73
-\mc@boxedresult=\box74
-\maxbalancingoverflow=\dimen303
-\mult@rightbox=\box75
-\mult@grightbox=\box76
-\mult@firstbox=\box77
-\mult@gfirstbox=\box78
-\@tempa=\box79
-\@tempa=\box80
-\@tempa=\box81
+\c@tracingmulticols=\count462
+\mult@box=\box74
+\multicol@leftmargin=\dimen301
+\c@unbalance=\count463
+\c@collectmore=\count464
+\doublecol@number=\count465
+\multicoltolerance=\count466
+\multicolpretolerance=\count467
+\full@width=\dimen302
+\page@free=\dimen303
+\premulticols=\dimen304
+\postmulticols=\dimen305
+\multicolsep=\skip93
+\multicolbaselineskip=\skip94
+\partial@page=\box75
+\last@line=\box76
+\mc@boxedresult=\box77
+\maxbalancingoverflow=\dimen306
+\mult@rightbox=\box78
+\mult@grightbox=\box79
+\mult@firstbox=\box80
+\mult@gfirstbox=\box81
 \@tempa=\box82
 \@tempa=\box83
 \@tempa=\box84
@@ -975,30 +983,33 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \@tempa=\box112
 \@tempa=\box113
 \@tempa=\box114
-\c@minrows=\count467
-\c@columnbadness=\count468
-\c@finalcolumnbadness=\count469
-\last@try=\dimen304
-\multicolovershoot=\dimen305
-\multicolundershoot=\dimen306
-\mult@nat@firstbox=\box115
-\colbreak@box=\box116
-\mc@col@check@num=\count470
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\c@minrows=\count468
+\c@columnbadness=\count469
+\c@finalcolumnbadness=\count470
+\last@try=\dimen307
+\multicolovershoot=\dimen308
+\multicolundershoot=\dimen309
+\mult@nat@firstbox=\box118
+\colbreak@box=\box119
+\mc@col@check@num=\count471
 ) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count471
+\c@subfigure=\count472
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count472
+\c@subtable=\count473
 ) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count473
-\float@exts=\toks45
-\float@box=\box117
-\@float@everytoks=\toks46
-\@floatcapt=\box118
+\c@float@type=\count474
+\float@exts=\toks46
+\float@box=\box120
+\@float@everytoks=\toks47
+\@floatcapt=\box121
 )
-Package scrhack Info: loading float hack on input line 29.
+Package scrhack Info: loading float hack on input line 30.
  (/usr/share/texlive/texmf-dist/tex/latex/koma-script/float.hak
 File: float.hak 2023/07/07 v3.41 KOMA-Script scrhack part (hacking package float)
 Package scrhack Info: redefining \newfloat on input line 163.
@@ -1009,10 +1020,10 @@ Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
  (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks47
-\XKV@tempa@toks=\toks48
+\XKV@toks=\toks48
+\XKV@tempa@toks=\toks49
 )
-\XKV@depth=\count474
+\XKV@depth=\count475
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
@@ -1020,53 +1031,53 @@ Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-
 Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
  (/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
-\collectedbox=\box119
+\collectedbox=\box122
 )
-\tc@llx=\dimen307
-\tc@lly=\dimen308
-\tc@urx=\dimen309
-\tc@ury=\dimen310
+\tc@llx=\dimen310
+\tc@lly=\dimen311
+\tc@urx=\dimen312
+\tc@ury=\dimen313
 Package trimclip Info: Using driver 'tc-pdftex.def'.
  (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen311
-\adjbox@Height=\dimen312
-\adjbox@Depth=\dimen313
-\adjbox@Totalheight=\dimen314
-\adjbox@pwidth=\dimen315
-\adjbox@pheight=\dimen316
-\adjbox@pdepth=\dimen317
-\adjbox@ptotalheight=\dimen318
+\adjbox@Width=\dimen314
+\adjbox@Height=\dimen315
+\adjbox@Depth=\dimen316
+\adjbox@Totalheight=\dimen317
+\adjbox@pwidth=\dimen318
+\adjbox@pheight=\dimen319
+\adjbox@pdepth=\dimen320
+\adjbox@ptotalheight=\dimen321
  (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count475
+\c@checkoddpage=\count476
 ) (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box120
-\sift@deathcycles=\count476
-\@vwid@loff=\dimen319
-\@vwid@roff=\dimen320
+\@vwid@box=\box123
+\sift@deathcycles=\count477
+\@vwid@loff=\dimen322
+\@vwid@roff=\dimen323
 )) (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen321
-\WF@size=\dimen322
-\c@WF@wrappedlines=\count477
-\WF@box=\box121
-\WF@everypar=\toks49
+\wrapoverhang=\dimen324
+\WF@size=\dimen325
+\c@WF@wrappedlines=\count478
+\WF@box=\box124
+\WF@everypar=\toks50
 Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen323
-\TX@old@table=\dimen324
-\TX@old@col=\dimen325
-\TX@target=\dimen326
-\TX@delta=\dimen327
-\TX@cols=\count478
-\TX@ftn=\toks50
+\TX@col@width=\dimen326
+\TX@old@table=\dimen327
+\TX@old@col=\dimen328
+\TX@target=\dimen329
+\TX@delta=\dimen330
+\TX@cols=\count479
+\TX@ftn=\toks51
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-LaTeX Font Info:    Trying to load font information for T1+pplx on input line 68.
+LaTeX Font Info:    Trying to load font information for T1+pplx on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pplx.fd
 File: t1pplx.fd 2004/09/06 font definitions for T1/pplx.
 ) (./main.aux
@@ -1085,45 +1096,45 @@ LaTeX Warning: Label `sub@fig:vclc06constantVelocityCube' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-Package nag Info: pgf.sty is broken: disabling dollar check on input line 68.
-Package nag Info: Command \bf not defined, skipping amendment on input line 68.
-Package nag Info: Command \it not defined, skipping amendment on input line 68.
-Package nag Info: Command \rm not defined, skipping amendment on input line 68.
-Package nag Info: Command \sc not defined, skipping amendment on input line 68.
-Package nag Info: Command \sf not defined, skipping amendment on input line 68.
-Package nag Info: Command \sl not defined, skipping amendment on input line 68.
-Package nag Info: Command \tt not defined, skipping amendment on input line 68.
-Package nag Info: Command \RaggedLeft not defined, skipping amendment on input line 68.
-Package nag Info: Command \RaggedRight not defined, skipping amendment on input line 68.
-Package scrbase Info: activating american \partname on input line 68.
-Package scrbase Info: activating american \chaptername on input line 68.
-Package scrbase Info: activating american \appendixname on input line 68.
-Package scrbase Info: activating american \figurename on input line 68.
-Package scrbase Info: activating american \tablename on input line 68.
-Package scrbase Info: activating american \contentsname on input line 68.
-Package scrbase Info: activating american \listfigurename on input line 68.
-Package scrbase Info: activating american \listtablename on input line 68.
-Package scrbase Info: activating american \bibname on input line 68.
-Package scrbase Info: activating american \indexname on input line 68.
-\big@size=\dimen328
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+Package nag Info: pgf.sty is broken: disabling dollar check on input line 69.
+Package nag Info: Command \bf not defined, skipping amendment on input line 69.
+Package nag Info: Command \it not defined, skipping amendment on input line 69.
+Package nag Info: Command \rm not defined, skipping amendment on input line 69.
+Package nag Info: Command \sc not defined, skipping amendment on input line 69.
+Package nag Info: Command \sf not defined, skipping amendment on input line 69.
+Package nag Info: Command \sl not defined, skipping amendment on input line 69.
+Package nag Info: Command \tt not defined, skipping amendment on input line 69.
+Package nag Info: Command \RaggedLeft not defined, skipping amendment on input line 69.
+Package nag Info: Command \RaggedRight not defined, skipping amendment on input line 69.
+Package scrbase Info: activating american \partname on input line 69.
+Package scrbase Info: activating american \chaptername on input line 69.
+Package scrbase Info: activating american \appendixname on input line 69.
+Package scrbase Info: activating american \figurename on input line 69.
+Package scrbase Info: activating american \tablename on input line 69.
+Package scrbase Info: activating american \contentsname on input line 69.
+Package scrbase Info: activating american \listfigurename on input line 69.
+Package scrbase Info: activating american \listtablename on input line 69.
+Package scrbase Info: activating american \bibname on input line 69.
+Package scrbase Info: activating american \indexname on input line 69.
+\big@size=\dimen331
 Package biblatex Info: Trying to load language 'american'...
 Package biblatex Info: ... file 'american.lbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/american.lbx
@@ -1160,45 +1171,45 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 68.
-Package biblatex Info: Reference segment=0 on input line 68.
+Package biblatex Info: Reference section=0 on input line 69.
+Package biblatex Info: Reference segment=0 on input line 69.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count479
-\scratchdimen=\dimen329
-\scratchbox=\box122
-\nofMPsegments=\count480
-\nofMParguments=\count481
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count482
-\MPscratchDim=\dimen330
-\MPnumerator=\count483
-\makeMPintoPDFobject=\count484
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count480
+\scratchdimen=\dimen332
+\scratchbox=\box125
+\nofMPsegments=\count481
+\nofMParguments=\count482
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count483
+\MPscratchDim=\dimen333
+\MPnumerator=\count484
+\makeMPintoPDFobject=\count485
+\everyMPtoPDFconversion=\toks53
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count485
-Package scrhack Info: undefining \float@addtolists on input line 68.
+\c@lstlisting=\count486
+Package scrhack Info: undefining \float@addtolists on input line 69.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-LaTeX Info: Redefining \microtypecontext on input line 68.
-Package microtype Info: Applying patch `item' on input line 68.
-Package microtype Info: Applying patch `toc' on input line 68.
-Package microtype Info: Applying patch `eqnum' on input line 68.
-Package microtype Info: Applying patch `footnote' on input line 68.
-Package microtype Info: Applying patch `verbatim' on input line 68.
+LaTeX Info: Redefining \microtypecontext on input line 69.
+Package microtype Info: Applying patch `item' on input line 69.
+Package microtype Info: Applying patch `toc' on input line 69.
+Package microtype Info: Applying patch `eqnum' on input line 69.
+Package microtype Info: Applying patch `footnote' on input line 69.
+Package microtype Info: Applying patch `verbatim' on input line 69.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 68.
+LaTeX Info: Redefining \showhyphens on input line 69.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1210,7 +1221,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 68.
+Package hyperref Info: Link coloring OFF on input line 69.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1222,15 +1233,15 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 68.
+(scrbook)           before \begin{document} on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count486
+\BKM@id=\count487
 ))
-Package nag Info: Command \hc@caption not defined, skipping amendment on input line 68.
-Package nag Info: Command \topcaption not defined, skipping amendment on input line 68.
+Package nag Info: Command \hc@caption not defined, skipping amendment on input line 69.
+Package nag Info: Command \topcaption not defined, skipping amendment on input line 69.
  (./pages/cover.tex [1
 
 
@@ -1275,7 +1286,7 @@ chapter without number
 
 
 ]
-Package tocbasic Info: character protrusion at toc deactivated on input line 82.
+Package tocbasic Info: character protrusion at toc deactivated on input line 83.
  (./main.toc [5
 
 
@@ -1286,7 +1297,7 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 82.
 \openout6 = `main.toc'.
 
 LaTeX Font Info:    Font shape `T1/pplx/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/pplx/m/it' tried instead on input line 85.
+(Font)              Font shape `T1/pplx/m/it' tried instead on input line 86.
  [6] (./chapters/intro.tex
 chapter 1.
 ) [1
@@ -1299,43 +1310,38 @@ chapter 2.
 
 
 ]
-<imgs/lj.png, id=147, 2173.11874pt x 1629.08624pt>
+<imgs/lj.png, id=145, 2173.11874pt x 1629.08624pt>
 File: imgs/lj.png Graphic file (type png)
 <use imgs/lj.png>
 Package pdftex.def Info: imgs/lj.png  used on input line 41.
 (pdftex.def)             Requested size: 209.12778pt x 156.75342pt.
-) [3 <./imgs/lj.png>] [4]
-chapter 3.
-(./chapters/techback.tex [5
-
-
-] [6]
-<imgs/directsum.png, id=203, 1789.68625pt x 1772.6225pt>
+) (./chapters/techback.tex [3 <./imgs/lj.png>] [4] [5]
+LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 53.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplx.fd
+File: ts1pplx.fd 2004/09/06 font definitions for TS1/pplx.
+) [6]
+<imgs/directsum.png, id=210, 1789.68625pt x 1772.6225pt>
 File: imgs/directsum.png Graphic file (type png)
 <use imgs/directsum.png>
-Package pdftex.def Info: imgs/directsum.png  used on input line 47.
+Package pdftex.def Info: imgs/directsum.png  used on input line 77.
 (pdftex.def)             Requested size: 92.01672pt x 91.12473pt.
-<imgs/linkedcells.png, id=204, 1789.68625pt x 1772.6225pt>
+<imgs/linkedcells.png, id=211, 1789.68625pt x 1772.6225pt>
 File: imgs/linkedcells.png Graphic file (type png)
 <use imgs/linkedcells.png>
-Package pdftex.def Info: imgs/linkedcells.png  used on input line 55.
+Package pdftex.def Info: imgs/linkedcells.png  used on input line 85.
 (pdftex.def)             Requested size: 92.01672pt x 91.12473pt.
-<imgs/verletlists.png, id=205, 1789.68625pt x 1772.6225pt>
+<imgs/verletlists.png, id=212, 1789.68625pt x 1772.6225pt>
 File: imgs/verletlists.png Graphic file (type png)
 <use imgs/verletlists.png>
-Package pdftex.def Info: imgs/verletlists.png  used on input line 63.
+Package pdftex.def Info: imgs/verletlists.png  used on input line 93.
 (pdftex.def)             Requested size: 92.01672pt x 91.12473pt.
-<imgs/verletclusters.png, id=206, 1789.68625pt x 1772.6225pt>
+<imgs/verletclusters.png, id=213, 1789.68625pt x 1772.6225pt>
 File: imgs/verletclusters.png Graphic file (type png)
 <use imgs/verletclusters.png>
-Package pdftex.def Info: imgs/verletclusters.png  used on input line 71.
+Package pdftex.def Info: imgs/verletclusters.png  used on input line 101.
 (pdftex.def)             Requested size: 92.01672pt x 91.12473pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[7]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 96.
+ [7 <./imgs/directsum.png> <./imgs/linkedcells.png> <./imgs/verletlists.png> <./imgs/verletclusters.png>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 126.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
@@ -1343,35 +1349,31 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [8 <./imgs/directsum.png> <./imgs/linkedcells.png> <./imgs/verletlists.png> <./imgs/verletclusters.png>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 98.
-<imgs/c01.png, id=241, 1592.95125pt x 1588.93625pt>
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 128.
+ [8{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+<imgs/c01.png, id=248, 1592.95125pt x 1588.93625pt>
 File: imgs/c01.png Graphic file (type png)
 <use imgs/c01.png>
-Package pdftex.def Info: imgs/c01.png  used on input line 111.
+Package pdftex.def Info: imgs/c01.png  used on input line 141.
 (pdftex.def)             Requested size: 125.47794pt x 125.15363pt.
-<imgs/c18.png, id=242, 1592.95125pt x 1588.93625pt>
+<imgs/c18.png, id=249, 1592.95125pt x 1588.93625pt>
 File: imgs/c18.png Graphic file (type png)
 <use imgs/c18.png>
-Package pdftex.def Info: imgs/c18.png  used on input line 117.
+Package pdftex.def Info: imgs/c18.png  used on input line 147.
 (pdftex.def)             Requested size: 125.47794pt x 125.15363pt.
-<imgs/c08.png, id=243, 1592.95125pt x 1588.93625pt>
+<imgs/c08.png, id=250, 1592.95125pt x 1588.93625pt>
 File: imgs/c08.png Graphic file (type png)
 <use imgs/c08.png>
-Package pdftex.def Info: imgs/c08.png  used on input line 123.
+Package pdftex.def Info: imgs/c08.png  used on input line 153.
 (pdftex.def)             Requested size: 125.47794pt x 125.15363pt.
- [9{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./imgs/c01.png> <./imgs/c18.png> <./imgs/c08.png>]) [10]
-chapter 4.
-(./chapters/relatedwork.tex
-LaTeX Font Info:    Trying to load font information for TS1+pplx on input line 13.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pplx.fd
-File: ts1pplx.fd 2004/09/06 font definitions for TS1/pplx.
-)) [11
+ [9 <./imgs/c01.png> <./imgs/c18.png> <./imgs/c08.png>]) [10]
+chapter 3.
+(./chapters/relatedwork.tex) [11
 
 
 ]
-chapter 5.
+chapter 4.
 (./chapters/impl.tex
 Overfull \hbox (0.4639pt too wide) in paragraph at lines 14--14
 []\T1/cmtt/m/n/10.95 newton3                          : # Boolean value determining if Newton's[] 
@@ -1387,12 +1389,12 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 ) [13] [14] [15] [16] [17]) [18]
-chapter 6.
+chapter 5.
 (./chapters/performance.tex [19
 
 
 ]
-<imgs/fallingDrop.png, id=419, 1814.78pt x 752.8125pt>
+<imgs/fallingDrop.png, id=421, 1814.78pt x 752.8125pt>
 File: imgs/fallingDrop.png Graphic file (type png)
 <use imgs/fallingDrop.png>
 Package pdftex.def Info: imgs/fallingDrop.png  used on input line 70.
@@ -1403,7 +1405,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 71.
 See the caption package documentation for explanation.
 
-<imgs/explodingLiquid.png, id=422, 1863.96375pt x 755.82375pt>
+<imgs/explodingLiquid.png, id=424, 1863.96375pt x 755.82375pt>
 File: imgs/explodingLiquid.png Graphic file (type png)
 <use imgs/explodingLiquid.png>
 Package pdftex.def Info: imgs/explodingLiquid.png  used on input line 76.
@@ -1414,7 +1416,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [20]
-<imgs/constCube.png, id=433, 1655.18375pt x 1444.39626pt>
+<imgs/constCube.png, id=435, 1655.18375pt x 1444.39626pt>
 File: imgs/constCube.png Graphic file (type png)
 <use imgs/constCube.png>
 Package pdftex.def Info: imgs/constCube.png  used on input line 86.
@@ -1425,7 +1427,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 87.
 See the caption package documentation for explanation.
 
-<imgs/spinodalDecomp.png, id=434, 1513.655pt x 1520.68124pt>
+<imgs/spinodalDecomp.png, id=436, 1513.655pt x 1520.68124pt>
 File: imgs/spinodalDecomp.png Graphic file (type png)
 <use imgs/spinodalDecomp.png>
 Package pdftex.def Info: imgs/spinodalDecomp.png  used on input line 92.
@@ -1438,17 +1440,17 @@ See the caption package documentation for explanation.
 [21 <./imgs/fallingDrop.png> <./imgs/explodingLiquid.png> <./imgs/constCube.png> <./imgs/spinodalDecomp.png>] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [22]
-<graphs/fallingDrop/freqvstime.png, id=465, 1013.9481pt x 458.9145pt>
+<graphs/fallingDrop/freqvstime.png, id=467, 1013.9481pt x 458.9145pt>
 File: graphs/fallingDrop/freqvstime.png Graphic file (type png)
 <use graphs/fallingDrop/freqvstime.png>
 Package pdftex.def Info: graphs/fallingDrop/freqvstime.png  used on input line 156.
 (pdftex.def)             Requested size: 376.42744pt x 170.3699pt.
-<graphs/explodingLiquid/freqvstime.png, id=466, 1013.9481pt x 455.301pt>
+<graphs/explodingLiquid/freqvstime.png, id=468, 1013.9481pt x 455.301pt>
 File: graphs/explodingLiquid/freqvstime.png Graphic file (type png)
 <use graphs/explodingLiquid/freqvstime.png>
 Package pdftex.def Info: graphs/explodingLiquid/freqvstime.png  used on input line 164.
 (pdftex.def)             Requested size: 376.42744pt x 169.02841pt.
-<graphs/constantVelocityCube/freqvstime.png, id=467, 1013.9481pt x 458.1918pt>
+<graphs/constantVelocityCube/freqvstime.png, id=469, 1013.9481pt x 458.1918pt>
 File: graphs/constantVelocityCube/freqvstime.png Graphic file (type png)
 <use graphs/constantVelocityCube/freqvstime.png>
 Package pdftex.def Info: graphs/constantVelocityCube/freqvstime.png  used on input line 172.
@@ -1458,23 +1460,23 @@ Package pdftex.def Info: graphs/constantVelocityCube/freqvstime.png  used on inp
 LaTeX Warning: Float too large for page by 23.26724pt on input line 181.
 
 [23] [24 <./graphs/fallingDrop/freqvstime.png> <./graphs/explodingLiquid/freqvstime.png> <./graphs/constantVelocityCube/freqvstime.png>]
-<graphs/fallingDrop/normalExperiments/freq/vlcc08inter156.png, id=492, 892.5345pt x 650.43pt>
+<graphs/fallingDrop/normalExperiments/freq/vlcc08inter156.png, id=494, 892.5345pt x 650.43pt>
 File: graphs/fallingDrop/normalExperiments/freq/vlcc08inter156.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/freq/vlcc08inter156.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/freq/vlcc08inter156.png  used on input line 218.
 (pdftex.def)             Requested size: 376.42744pt x 274.31015pt.
-<graphs/fallingDrop/normalExperiments/freq/vlcc08_neighbour_156.png, id=493, 1084.05pt x 650.43pt>
+<graphs/fallingDrop/normalExperiments/freq/vlcc08_neighbour_156.png, id=495, 1084.05pt x 650.43pt>
 File: graphs/fallingDrop/normalExperiments/freq/vlcc08_neighbour_156.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/freq/vlcc08_neighbour_156.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/freq/vlcc08_neighbour_156.png  used on input line 229.
 (pdftex.def)             Requested size: 376.42744pt x 225.85753pt.
-<graphs/fallingDrop/normalExperiments/freq/vlcc08_buffer_size_156.png, id=494, 1151.9838pt x 650.43pt>
+<graphs/fallingDrop/normalExperiments/freq/vlcc08_buffer_size_156.png, id=496, 1151.9838pt x 650.43pt>
 File: graphs/fallingDrop/normalExperiments/freq/vlcc08_buffer_size_156.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/freq/vlcc08_buffer_size_156.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/freq/vlcc08_buffer_size_156.png  used on input line 240.
 (pdftex.def)             Requested size: 418.25555pt x 236.14949pt.
  [25 <./graphs/fallingDrop/normalExperiments/freq/vlcc08inter156.png>] [26 <./graphs/fallingDrop/normalExperiments/freq/vlcc08_neighbour_156.png> <./graphs/fallingDrop/normalExperiments/freq/vlcc08_buffer_size_156.png>] [27] [28] [29]
-<graphs/constantVelocityCube/normalExperiments/iter/vlpc08dvlpb.png, id=547, 1172.2194pt x 650.43pt>
+<graphs/constantVelocityCube/normalExperiments/iter/vlpc08dvlpb.png, id=549, 1172.2194pt x 650.43pt>
 File: graphs/constantVelocityCube/normalExperiments/iter/vlpc08dvlpb.png Graphic file (type png)
 <use graphs/constantVelocityCube/normalExperiments/iter/vlpc08dvlpb.png>
 Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/iter/vlpc08dvlpb.png  used on input line 349.
@@ -1490,7 +1492,7 @@ Package nag Warning: `center' environment in figure.
 (nag)                Maybe you want \centering instead on input line 352.
 
 [30 <./graphs/constantVelocityCube/normalExperiments/iter/vlpc08dvlpb.png>] [31]
-<graphs/percentage_vlcc08.png, id=564, 1269.7839pt x 650.43pt>
+<graphs/percentage_vlcc08.png, id=566, 1269.7839pt x 650.43pt>
 File: graphs/percentage_vlcc08.png Graphic file (type png)
 <use graphs/percentage_vlcc08.png>
 Package pdftex.def Info: graphs/percentage_vlcc08.png  used on input line 397.
@@ -1506,7 +1508,7 @@ Package nag Warning: `center' environment in figure.
 (nag)                Maybe you want \centering instead on input line 400.
 
 [32 <./graphs/percentage_vlcc08.png>]
-<graphs/spinodalDecomposition/vlcc08.png, id=571, 809.424pt x 450.2421pt>
+<graphs/spinodalDecomposition/vlcc08.png, id=573, 809.424pt x 450.2421pt>
 File: graphs/spinodalDecomposition/vlcc08.png Graphic file (type png)
 <use graphs/spinodalDecomposition/vlcc08.png>
 Package pdftex.def Info: graphs/spinodalDecomposition/vlcc08.png  used on input line 424.
@@ -1517,7 +1519,7 @@ Package nag Warning: `center' environment in figure.
 (nag)                Maybe you want \centering instead on input line 428.
 
 [33 <./graphs/spinodalDecomposition/vlcc08.png>]
-<graphs/spinodalDecomposition/lcc08.png, id=579, 759.5577pt x 396.7623pt>
+<graphs/spinodalDecomposition/lcc08.png, id=581, 759.5577pt x 396.7623pt>
 File: graphs/spinodalDecomposition/lcc08.png Graphic file (type png)
 <use graphs/spinodalDecomposition/lcc08.png>
 Package pdftex.def Info: graphs/spinodalDecomposition/lcc08.png  used on input line 444.
@@ -1528,7 +1530,7 @@ Package nag Warning: `center' environment in figure.
 (nag)                Maybe you want \centering instead on input line 448.
 
 [34 <./graphs/spinodalDecomposition/lcc08.png>]
-<graphs/spinodalDecomposition/vlcc08_increased.png, id=587, 694.5147pt x 382.3083pt>
+<graphs/spinodalDecomposition/vlcc08_increased.png, id=589, 694.5147pt x 382.3083pt>
 File: graphs/spinodalDecomposition/vlcc08_increased.png Graphic file (type png)
 <use graphs/spinodalDecomposition/vlcc08_increased.png>
 Package pdftex.def Info: graphs/spinodalDecomposition/vlcc08_increased.png  used on input line 466.
@@ -1541,7 +1543,7 @@ Package nag Warning: `center' environment in figure.
 [35
 
  <./graphs/spinodalDecomposition/vlcc08_increased.png>] [36]
-<graphs/checkpoint.png, id=602, 730.6497pt x 463.2507pt>
+<graphs/checkpoint.png, id=604, 730.6497pt x 463.2507pt>
 File: graphs/checkpoint.png Graphic file (type png)
 <use graphs/checkpoint.png>
 Package pdftex.def Info: graphs/checkpoint.png  used on input line 501.
@@ -1552,29 +1554,29 @@ Package nag Warning: `center' environment in figure.
 (nag)                Maybe you want \centering instead on input line 505.
 
 ) [37 <./graphs/checkpoint.png>]
-chapter 7.
+chapter 6.
 (./chapters/futurework.tex) [38
 
 
 ]
-chapter 8.
+chapter 7.
 (./chapters/concl.tex) [39
 
 
 ]
 chapter A.
 (./chapters/appendix.tex
-<graphs/fallingDrop/normalExperiments/freq/vlcc08.png, id=617, 1013.9481pt x 456.0237pt>
+<graphs/fallingDrop/normalExperiments/freq/vlcc08.png, id=619, 1013.9481pt x 456.0237pt>
 File: graphs/fallingDrop/normalExperiments/freq/vlcc08.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/freq/vlcc08.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/freq/vlcc08.png  used on input line 8.
 (pdftex.def)             Requested size: 376.42744pt x 169.2967pt.
-<graphs/fallingDrop/normalExperiments/freq/lcc08.png, id=618, 1017.5616pt x 456.0237pt>
+<graphs/fallingDrop/normalExperiments/freq/lcc08.png, id=620, 1017.5616pt x 456.0237pt>
 File: graphs/fallingDrop/normalExperiments/freq/lcc08.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/freq/lcc08.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/freq/lcc08.png  used on input line 16.
 (pdftex.def)             Requested size: 376.42744pt x 168.69829pt.
-<graphs/fallingDrop/normalExperiments/freq/vclc06.png, id=619, 1013.9481pt x 464.6961pt>
+<graphs/fallingDrop/normalExperiments/freq/vclc06.png, id=621, 1013.9481pt x 464.6961pt>
 File: graphs/fallingDrop/normalExperiments/freq/vclc06.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/freq/vclc06.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/freq/vclc06.png  used on input line 24.
@@ -1583,17 +1585,17 @@ Package pdftex.def Info: graphs/fallingDrop/normalExperiments/freq/vclc06.png  u
 
 LaTeX Warning: Float too large for page by 24.27861pt on input line 33.
 
-<graphs/explodingLiquid/normalExperiments/freq/vlcc08.png, id=620, 1012.5027pt x 455.301pt>
+<graphs/explodingLiquid/normalExperiments/freq/vlcc08.png, id=622, 1012.5027pt x 455.301pt>
 File: graphs/explodingLiquid/normalExperiments/freq/vlcc08.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/freq/vlcc08.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/freq/vlcc08.png  used on input line 41.
 (pdftex.def)             Requested size: 376.42744pt x 169.26462pt.
-<graphs/explodingLiquid/normalExperiments/freq/lcc08.png, id=621, 1015.3935pt x 456.0237pt>
+<graphs/explodingLiquid/normalExperiments/freq/lcc08.png, id=623, 1015.3935pt x 456.0237pt>
 File: graphs/explodingLiquid/normalExperiments/freq/lcc08.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/freq/lcc08.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/freq/lcc08.png  used on input line 49.
 (pdftex.def)             Requested size: 376.42744pt x 169.05316pt.
-<graphs/explodingLiquid/normalExperiments/freq/vclc06.png, id=622, 1013.2254pt x 461.0826pt>
+<graphs/explodingLiquid/normalExperiments/freq/vclc06.png, id=624, 1013.2254pt x 461.0826pt>
 File: graphs/explodingLiquid/normalExperiments/freq/vclc06.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/freq/vclc06.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/freq/vclc06.png  used on input line 57.
@@ -1601,17 +1603,17 @@ Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/freq/vclc06.pn
 
 LaTeX Warning: Float too large for page by 23.3795pt on input line 66.
 
-<graphs/constantVelocityCube/normalExperiments/freq/vlpc08.png, id=623, 1014.6708pt x 453.8556pt>
+<graphs/constantVelocityCube/normalExperiments/freq/vlpc08.png, id=625, 1014.6708pt x 453.8556pt>
 File: graphs/constantVelocityCube/normalExperiments/freq/vlpc08.png Graphic file (type png)
 <use graphs/constantVelocityCube/normalExperiments/freq/vlpc08.png>
 Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/freq/vlpc08.png  used on input line 74.
 (pdftex.def)             Requested size: 376.42744pt x 168.37408pt.
-<graphs/constantVelocityCube/normalExperiments/freq/lcc08.png, id=624, 1015.3935pt x 457.4691pt>
+<graphs/constantVelocityCube/normalExperiments/freq/lcc08.png, id=626, 1015.3935pt x 457.4691pt>
 File: graphs/constantVelocityCube/normalExperiments/freq/lcc08.png Graphic file (type png)
 <use graphs/constantVelocityCube/normalExperiments/freq/lcc08.png>
 Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/freq/lcc08.png  used on input line 82.
 (pdftex.def)             Requested size: 376.42744pt x 169.58899pt.
-<graphs/constantVelocityCube/normalExperiments/freq/vclc06.png, id=625, 1013.2254pt x 454.5783pt>
+<graphs/constantVelocityCube/normalExperiments/freq/vclc06.png, id=627, 1013.2254pt x 454.5783pt>
 File: graphs/constantVelocityCube/normalExperiments/freq/vclc06.png Graphic file (type png)
 <use graphs/constantVelocityCube/normalExperiments/freq/vclc06.png>
 Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/freq/vclc06.png  used on input line 90.
@@ -1619,12 +1621,12 @@ Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/freq/vclc
 
 LaTeX Warning: Float too large for page by 20.60841pt on input line 99.
 
-<graphs/explodingLiquid/normalExperiments/freq/vclc0_6inter.png, id=626, 974.1996pt x 650.43pt>
+<graphs/explodingLiquid/normalExperiments/freq/vclc0_6inter.png, id=628, 974.1996pt x 650.43pt>
 File: graphs/explodingLiquid/normalExperiments/freq/vclc0_6inter.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/freq/vclc0_6inter.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/freq/vclc0_6inter.png  used on input line 111.
 (pdftex.def)             Requested size: 376.42744pt x 251.32443pt.
-<graphs/explodingLiquid/normalExperiments/freq/vlc_c08inter.png, id=627, 977.8131pt x 650.43pt>
+<graphs/explodingLiquid/normalExperiments/freq/vlc_c08inter.png, id=629, 977.8131pt x 650.43pt>
 File: graphs/explodingLiquid/normalExperiments/freq/vlc_c08inter.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/freq/vlc_c08inter.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/freq/vlc_c08inter.png  used on input line 119.
@@ -1632,17 +1634,17 @@ Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/freq/vlc_c08in
 
 LaTeX Warning: Float too large for page by 16.43571pt on input line 128.
 
-<graphs/fallingDrop/freqvstimeiter.png, id=628, 926.5014pt x 455.301pt>
+<graphs/fallingDrop/freqvstimeiter.png, id=630, 926.5014pt x 455.301pt>
 File: graphs/fallingDrop/freqvstimeiter.png Graphic file (type png)
 <use graphs/fallingDrop/freqvstimeiter.png>
 Package pdftex.def Info: graphs/fallingDrop/freqvstimeiter.png  used on input line 138.
 (pdftex.def)             Requested size: 355.51976pt x 174.71132pt.
-<graphs/explodingLiquid/freqvstimeiter.png, id=629, 927.2241pt x 456.7464pt>
+<graphs/explodingLiquid/freqvstimeiter.png, id=631, 927.2241pt x 456.7464pt>
 File: graphs/explodingLiquid/freqvstimeiter.png Graphic file (type png)
 <use graphs/explodingLiquid/freqvstimeiter.png>
 Package pdftex.def Info: graphs/explodingLiquid/freqvstimeiter.png  used on input line 146.
 (pdftex.def)             Requested size: 355.51976pt x 175.12657pt.
-<graphs/constantVelocityCube/freqvstimeiter.png, id=630, 923.6106pt x 456.7464pt>
+<graphs/constantVelocityCube/freqvstimeiter.png, id=632, 923.6106pt x 456.7464pt>
 File: graphs/constantVelocityCube/freqvstimeiter.png Graphic file (type png)
 <use graphs/constantVelocityCube/freqvstimeiter.png>
 Package pdftex.def Info: graphs/constantVelocityCube/freqvstimeiter.png  used on input line 154.
@@ -1650,17 +1652,17 @@ Package pdftex.def Info: graphs/constantVelocityCube/freqvstimeiter.png  used on
 
 LaTeX Warning: Float too large for page by 31.7498pt on input line 163.
 
-<graphs/fallingDrop/normalExperiments/iter/vlcc08.png, id=631, 796.4154pt x 370.0224pt>
+<graphs/fallingDrop/normalExperiments/iter/vlcc08.png, id=633, 796.4154pt x 370.0224pt>
 File: graphs/fallingDrop/normalExperiments/iter/vlcc08.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/iter/vlcc08.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/iter/vlcc08.png  used on input line 173.
 (pdftex.def)             Requested size: 376.42744pt x 174.89296pt.
-<graphs/fallingDrop/normalExperiments/iter/lcc08.png, id=632, 796.4154pt x 367.1316pt>
+<graphs/fallingDrop/normalExperiments/iter/lcc08.png, id=634, 796.4154pt x 367.1316pt>
 File: graphs/fallingDrop/normalExperiments/iter/lcc08.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/iter/lcc08.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/iter/lcc08.png  used on input line 181.
 (pdftex.def)             Requested size: 376.42744pt x 173.52661pt.
-<graphs/fallingDrop/normalExperiments/iter/vclc06.png, id=633, 794.97pt x 366.4089pt>
+<graphs/fallingDrop/normalExperiments/iter/vclc06.png, id=635, 794.97pt x 366.4089pt>
 File: graphs/fallingDrop/normalExperiments/iter/vclc06.png Graphic file (type png)
 <use graphs/fallingDrop/normalExperiments/iter/vclc06.png>
 Package pdftex.def Info: graphs/fallingDrop/normalExperiments/iter/vclc06.png  used on input line 189.
@@ -1668,17 +1670,17 @@ Package pdftex.def Info: graphs/fallingDrop/normalExperiments/iter/vclc06.png  u
 
 LaTeX Warning: Float too large for page by 35.6906pt on input line 198.
 
-<graphs/explodingLiquid/normalExperiments/iter/vlcc08.png, id=634, 796.4154pt x 367.8543pt>
+<graphs/explodingLiquid/normalExperiments/iter/vlcc08.png, id=636, 796.4154pt x 367.8543pt>
 File: graphs/explodingLiquid/normalExperiments/iter/vlcc08.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/iter/vlcc08.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/iter/vlcc08.png  used on input line 208.
 (pdftex.def)             Requested size: 376.42744pt x 173.8682pt.
-<graphs/explodingLiquid/normalExperiments/iter/lcc08.png, id=635, 800.0289pt x 370.7451pt>
+<graphs/explodingLiquid/normalExperiments/iter/lcc08.png, id=637, 800.0289pt x 370.7451pt>
 File: graphs/explodingLiquid/normalExperiments/iter/lcc08.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/iter/lcc08.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/iter/lcc08.png  used on input line 216.
 (pdftex.def)             Requested size: 376.42744pt x 174.44255pt.
-<graphs/explodingLiquid/normalExperiments/iter/vclc06.png, id=636, 800.0289pt x 371.4678pt>
+<graphs/explodingLiquid/normalExperiments/iter/vclc06.png, id=638, 800.0289pt x 371.4678pt>
 File: graphs/explodingLiquid/normalExperiments/iter/vclc06.png Graphic file (type png)
 <use graphs/explodingLiquid/normalExperiments/iter/vclc06.png>
 Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/iter/vclc06.png  used on input line 224.
@@ -1686,17 +1688,17 @@ Package pdftex.def Info: graphs/explodingLiquid/normalExperiments/iter/vclc06.pn
 
 LaTeX Warning: Float too large for page by 36.86066pt on input line 233.
 
-<graphs/constantVelocityCube/normalExperiments/iter/vlpc08.png, id=637, 722.7pt x 315.0972pt>
+<graphs/constantVelocityCube/normalExperiments/iter/vlpc08.png, id=639, 722.7pt x 315.0972pt>
 File: graphs/constantVelocityCube/normalExperiments/iter/vlpc08.png Graphic file (type png)
 <use graphs/constantVelocityCube/normalExperiments/iter/vlpc08.png>
 Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/iter/vlpc08.png  used on input line 243.
 (pdftex.def)             Requested size: 376.42744pt x 164.12073pt.
-<graphs/constantVelocityCube/normalExperiments/iter/lcc08.png, id=638, 721.2546pt x 310.761pt>
+<graphs/constantVelocityCube/normalExperiments/iter/lcc08.png, id=640, 721.2546pt x 310.761pt>
 File: graphs/constantVelocityCube/normalExperiments/iter/lcc08.png Graphic file (type png)
 <use graphs/constantVelocityCube/normalExperiments/iter/lcc08.png>
 Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/iter/lcc08.png  used on input line 251.
 (pdftex.def)             Requested size: 376.42744pt x 162.18463pt.
-<graphs/constantVelocityCube/normalExperiments/iter/vclc06.png, id=639, 723.4227pt x 310.761pt>
+<graphs/constantVelocityCube/normalExperiments/iter/vclc06.png, id=641, 723.4227pt x 310.761pt>
 File: graphs/constantVelocityCube/normalExperiments/iter/vclc06.png Graphic file (type png)
 <use graphs/constantVelocityCube/normalExperiments/iter/vclc06.png>
 Package pdftex.def Info: graphs/constantVelocityCube/normalExperiments/iter/vclc06.png  used on input line 259.
@@ -1730,10 +1732,34 @@ chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplx/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
+
+Overfull \hbox (269.7278pt too wide) in paragraph at lines 126--126
+\T1/pplx/m/n/10.95 (-20) Auto-tuning for par-ti-cle sim-u-la-tions.^^Q In: |   [].
+ []
+
+
+Overfull \hbox (258.9801pt too wide) in paragraph at lines 126--126
+\T1/pplx/m/n/10.95 (-20) state of a gas.^^Q In: |   []
+ []
+
+
+Overfull \hbox (264.29115pt too wide) in paragraph at lines 126--126
+[]\T1/pplx/m/n/10.95 (-20) M. G. S. Knapek and G. Zum-busch. |   [].
+ []
+
 [51
 
 
 ]
+Overfull \hbox (164.91527pt too wide) in paragraph at lines 126--126
+\T1/pplx/m/n/10.95 (-20) Multi-Site Molec-u-lar Dy-nam-ics sim-u-la-tions with Au-toPas.^^Q In: |   []
+ []
+
+
+Overfull \hbox (124.09746pt too wide) in paragraph at lines 126--126
+\T1/pplx/m/n/10.95 (-20) sively par-al-lel molec-u-lar dy-nam-ics code for large sys-tems.^^Q In: |   []
+ []
+
 
 Package nag Warning: 6 complaints in total.
 
@@ -1744,27 +1770,35 @@ L3 programming layer <2020/03/25>
  ***********
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51511 strings out of 474222
- 1150029 string characters out of 5748733
- 2458263 words of memory out of 5000000
- 72226 multiletter control sequences out of 15000+600000
- 624748 words of font info for 379 fonts, out of 8000000 for 9000
+ 51585 strings out of 474222
+ 1150981 string characters out of 5748733
+ 2459424 words of memory out of 5000000
+ 72310 multiletter control sequences out of 15000+600000
+ 624085 words of font info for 369 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  111i,9n,125p,10954b,3110s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (59 pages, 11051351 bytes).
+Output written on main.pdf (59 pages, 11052575 bytes).
 PDF statistics:
- 1004 PDF objects out of 1200 (max. 8388607)
- 812 compressed objects within 9 object streams
- 289 named destinations out of 1000 (max. 500000)
- 97872 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 1001 PDF objects out of 1200 (max. 8388607)
+ 809 compressed objects within 9 object streams
+ 288 named destinations out of 1000 (max. 500000)
+ 97864 words of extra memory for PDF output out of 106986 (max. 10000000)
 

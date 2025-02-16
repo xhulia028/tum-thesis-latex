@@ -1,43 +1,73 @@
 \section{AutoPas Software}
 
-AutoPas is a C++ library specifically designed to optimize short-range particle simulations through dynamic algorithm selection. It acts as a black box, where users provide the specifications while the library handles the choice of the best suitable algorithm through auto tuning. By periodically evaluating various algorithms, AutoPas ensures that the most efficient configuration is applied as simulation conditions change. This adaptability is particularly useful for large-scale or dynamic simulations where optimal configurations may shift over time. Although AutoPas is primarily intended for node-level simulations, however it can be integrated into distributed systems. The library also includes example applications, such as the md-flexible framework, which will be used in the course of this thesis \parencite{gratl2019autopas}.
+AutoPas is a C++ library specifically designed to optimize short-range particle simulations through dynamic algorithm selection. It acts as a black box, where users provide the specifications while the library handles the choice of the best suitable algorithm through auto-tuning. By periodically evaluating various algorithms, AutoPas ensures that the most efficient configuration is applied as simulation conditions change. The library includes example applications, such as the md-flexible framework, which will be used in the course of this thesis \parencite{gratl2019autopas}.
 
 
 \subsection{Data layouts}
 
-AutoPas supports two primary data layouts for storing particle information in memory: Array of Structures (AoS) and Structure of Arrays (SoA). In the AoS layout, each particle is represented as an object containing all its properties, such as position and force, stored together in memory. This arrangement allows for efficient cache utilization when accessing individual particles, but can limit vectorization efficiency. In contrast, the SoA layout separates particle properties into individual arrays, with each array containing data for all particles, enabling better vectorization by aligning data contiguously in memory. However, this layout may lead to less efficient cache usage when accessing properties of a single particle. The choice of data layout depends on the specific simulation requirements, as each has trade-offs in terms of memory access patterns and computational performance \parencite{gratl2019autopas}.
+AutoPas supports two primary data layouts for storing particle information in memory: Array of Structures (AoS) and Structure of Arrays (SoA). In the AoS layout, each particle is represented as an object containing all its properties, such as position and force, stored together in memory. This arrangement allows for efficient cache utilization when accessing individual particles, but can limit vectorization efficiency. On the other hand, the SoA layout separates particle properties into individual arrays, with each array containing data for all particles, leading to better vectorization by aligning data contiguously in memory. However, this layout may lead to less efficient cache usage when accessing properties of a single particle \parencite{gratl2019autopas}.
 
 \subsection{Neighbor identification algorithms} \label{sec:neighbor_iden_algs}
 
-During auto tuning AutoPas has to decide how to manage and store the particles of the simulation, and most importantly how to identify the neighboring particles to efficiently compute the pairwise forces. As shown in section \ref{sec:shortrange}, for each particle, the particles within the cut-off radius should be found, and the rest will be ignored. This process is repeated for every single particle in the container, and choosing the right Neighbor identification algorithm, is crucial when it comes to performance. Below, the four algorithms used in AutoPas are presented. These algorithms are implemented as containers in AutoPas, managing neighbor identification and the overall particle organization, including the selection of the data layout. 
+During auto-tuning AutoPas has to decide how to manage and store the particles of the simulation, and most importantly how to identify the neighboring particles to efficiently compute the pairwise forces. As shown in section \ref{sec:shortrange}, for each particle, the particles within the cut-off radius should be found, and the rest will be ignored. This process is repeated for every single particle in the container, and choosing the right Neighbor identification algorithm, is crucial when it comes to performance. Below, the four algorithms used in AutoPas are presented. These algorithms are implemented as containers in AutoPas, managing neighbor identification and the overall particle organization, including the selection of the data layout. 
 
 \subsubsection{Direct Sum}
 
 The straightforward, and thus naive, approach, is to calculate the distances from one particle to all other particles without utilizing any additional data structures. Instead, all particles are stored in a single cell, and for each particle, distances to all other particles are evaluated to determine whether they fall within the cutoff radius. Forces are only computed for pairs of particles within this radius. As illustrated in \hyperref[fig:directsum]{Figure \ref*{fig:directsum}}, the red particle represents the current particle, for which forces are being calculated, the red circle denotes the cutoff radius, and the arrows depict the interactions between the current particle and the others.
 
-This method, while eliminating the complexity and overhead associated with data structures, is computationally inefficient. The calculation of pairwise forces results in a time complexity of \(O(n^2)\), where \(n\) is the number of particles \parencite{gratl2022n}. Although simple, this approach is only practical for simulations with a very small number of particles.
+This method, while eliminating the complexity and overhead associated with bigger data structures, is computationally inefficient. The calculation of pairwise forces results in a time complexity of \(O(n^2)\), where \(n\) is the number of particles \parencite{gratl2022n}. Although simple, this approach is only practical for simulations with a very small number of particles.
 
 
 \subsubsection{Linked Cells}
 
-This approach extends the Direct Sum method by dividing the simulation domain into cells, with each cell containing the particles within its boundaries. The cell dimensions are set to at least the cutoff radius. This ensures that short-range interactions are computed only between particles in the current cell and its eight neighboring cells, as depicted with blue in \hyperref[fig:linkedcells]{Figure \ref*{fig:linkedcells}}.
+This approach extends the Direct Sum method by dividing the simulation domain into cells, with each cell containing the particles within its boundaries. The cell dimensions are set to at least the cutoff radius (\(r_c\)). This ensures that short-range interactions are computed only between particles in the current cell and its eight neighboring cells, as depicted with blue in \hyperref[fig:linkedcells]{Figure \ref*{fig:linkedcells}}.
 
-Because the cell size matches the cutoff radius, particles outside these neighboring cells are guaranteed to lie beyond the interaction range and can be excluded from force calculations. For homogeneous particle distributions, this reduces the computational complexity from \(O(n^2)\) to \(O(n)\) \parencite{knapek2007numerical}. Furthermore, Linked Cells improve cache efficiency by storing particles within the same cell contiguously in memory. Nonetheless, there is still overhead, since additional particles need to be evaluated to determine if they can be considered for force calculations.
+Because the cell size matches the cutoff radius, particles outside these neighboring cells are guaranteed to lie beyond the interaction range and can be excluded from force calculations. For homogeneous particle distributions, this reduces the computational complexity from \(O(n^2)\) to \(O(n)\) \parencite{knapek2007numerical}. Furthermore, Linked Cells improve cache efficiency by storing particles within the same cell contiguously in memory. 
 
+Nonetheless, there is still computational overhead, as around 84.5\% of the particles in the search region are outside the cutoff radius, leading to redundant distance calculations. The probability of finding a pair of particles within the cutoff radius in a 3D simulation, is approximately 15.5\% and can be estimated using the following equation \parencite{gratl2019autopas}:
 
+\[
+\frac{\textit{Cutoff volume}}{\textit{Search volume}_{LC}} =
+\frac{\frac{4}{3} \pi r_c^3}{(3r_c)^3}
+\]
 
 \subsubsection{Verlet Lists}
 
-The Verlet list method extends the Linked Cells algorithm by precomputing and storing neighbor lists or verlet lists for each particle. These lists include all particles within a cutoff radius \(r_c\) plus an additional buffer zone defined by the verlet skin factor \(s\), resulting in a search radius of \(r_c \cdot s\), illustrated with yellow in \hyperref[fig:verletlists]{Figure \ref*{fig:verletlists}}. This buffer ensures that fast-moving particles do not enter or leave the cutoff region unnoticed, allowing the neighbor lists to be reused for multiple iterations.
+The idea behind Verlet Lists is to precompute and store neighbor lists for each particle. This allows the AutoPas to efficiently track all nearby particles within a particle's cutoff radius, making pairwise interaction calculations faster by reducing the number of distance checks needed in each iteration.
 
-Constructing these lists involves evaluating only particles in nearby cells, improving runtime efficiency. During each iteration, distance checks are performed only for the stored neighbors, achieving a complexity of \(O(N)\) \parencite{yao2004improved}. While smaller buffer sizes reduce unnecessary calculations, they require more frequent updates to the lists, making the choice of \(s\) crucial for performance.
+Since particles move during the simulation, these lists eventually become outdated and need to be rebuilt whenever a new particle enters or leaves the cutoff region. To reduce how often these lists need to be rebuilt, an additional safety margin is introduced, known as the Verlet skin factor \(s\). The cutoff radius \(r_c\) is scaled by this factor, expanding the search radius to \(r_c \cdot s\), as shown with yellow in Figure~\ref{fig:verletlists}. This extended region allows the neighbor lists to remain valid for multiple iterations, reducing the frequency of rebuilds.
 
-Verlet lists are particularly effective for systems with high particle densities. However, their lack of spatial locality can lead to inefficient memory access, resulting in poor cache performance and reduced vectorization efficiency \parencite{gratl2022n}.
+With this approach, the probability of finding a particle in the cutoff region in a 3D simulation domain is given by \parencite{gratl2019autopas}:
+
+\[
+\frac{\textit{Cutoff volume}}{\textit{Search volume}_{VL}} =
+\frac{\frac{4}{3} \pi r_c^3}{\frac{4}{3} \pi (r_c \cdot s)^3} =
+\frac{1}{s^3}.
+\]
+
+
+Selecting an appropriate skin factor is crucial, as it affects both the number of unnecessary calculations and how often the neighbor lists are rebuilt. For instance, a skin factor of 1.2 reduces the number of unnecessary distance calculations by half compared to Linked Cells.
+
+Throughout the simulation, as particles move, two cases arise:
+\begin{itemize}
+    \item If a particle moves away from another, it may remain in the neighbor list longer than necessary, increasing storage costs and unnecessary force calculations.
+    \item If a particle moves closer to another, it may enter its cutoff radius but not be included in the neighbor list, leading to incorrect force calculations.
+\end{itemize}
+
+To avoid these issues, AutoPas uses a fixed rebuild frequency parameter, ensuring that all neighbor lists are rebuilt every \(N\) iterations to keep them compact and accurate. 
+
+
+On top of that, when using dynamic containers as described in \parencite{gall2023exploration}, the maximum particle displacement per iteration is used as a metric of when to rebuild. In this case the displacement of each particle from its last rebuild position is tracked in every iteration. This displacement is then compared to a threshold, which is chosen as half of the Verlet skin size \parencite{thompson2022lammps}. If at least one particle exceeds this threshold, it could have entered the cutoff region of another particle, and therefore the neighbor lists are rebuilt.
+
+
+To improve efficiency, AutoPas builds the Verlet Lists algorithm on top of Linked Cells. Therefore, the neighbor lists are constructed by assessing only particles in neighboring cells. This allows the computational complexity to be reduced from \(O(N^2)\) (brute-force search) to \(O(N)\) \parencite{yao2004improved}. 
+
+Verlet Lists are particularly effective for systems with high particle densities. However, their lack of spatial locality can lead to inefficient memory access, resulting in poor cache performance and reduced vectorization efficiency \parencite{gratl2022n}.
 
 
 \subsubsection{Verlet Cluster Lists}
 
-Verlet Cluster Lists are built upon regular Verlet Lists by grouping particles into clusters rather than maintaining individual neighbor lists for each particle \hyperref[fig:verletclusters]{Figure \ref*{fig:verletclusters}}. This approach reduces memory overhead, as a single neighbor list is created for each cluster instead of one for every particle. The algorithm uses the observation that neighboring particles often share similar neighbor lists, allowing $M$ particles to be combined into a cluster. When two clusters are close, all interactions between the particles within these clusters are calculated. This optimization decreases the number of neighbor lists by a factor of $\frac{1}{M}$ \parencite{gratl2022n}, and enhances computational efficiency by enabling better vectorization. However, the increased search radius, can lead to additional distance calculations. Despite this, Verlet Cluster Lists are well-suited for large systems with high particle densities.
+Verlet Cluster Lists are built upon regular Verlet Lists by grouping particles into clusters rather than maintaining individual neighbor lists for each particle Figure~\ref{fig:verletclusters}. This approach reduces memory overhead, as a single neighbor list is created for each cluster instead of one for every particle. The algorithm uses the observation that neighboring particles often share similar neighbor lists, allowing $M$ particles to be combined into a cluster. When two clusters are close, all interactions between the particles within these clusters are calculated. This optimization decreases the number of neighbor lists by a factor of $\frac{1}{M}$ \parencite{gratl2022n}, and enhances computational efficiency by enabling better vectorization. However, the increased search radius, can lead to additional distance calculations. Despite this, Verlet Cluster Lists are well-suited for large systems with high particle densities.
 
 \begin{figure}[h!]
     \centering
@@ -72,7 +102,7 @@ Verlet Cluster Lists are built upon regular Verlet Lists by grouping particles i
         \caption{\scriptsize Verlet Cluster Lists}
         \label{fig:verletclusters}
     \end{subfigure}
-    \caption{Neighbor identification algorithms \parencite{gratl2022n}}
+    \caption{Neighbor Identification Algorithms in AutoPas \parencite{gratl2022n}}
 \end{figure}
 
 

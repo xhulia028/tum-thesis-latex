@@ -1,7 +1,7 @@
 
 \section{Molecular Dynamics (MD) Simulations}
 
-Molecular dynamics (MD) is a computational method used to analyze the interactions and movements of atoms and molecules. It offers better understanding of dynamic processes at atomic scale, such as diffusion, chemical reactions, and phase changes, making it an essential tool in physics, bioinformatics, molecular biology, materials science, and more. MD simulations are widely used to study protein folding, predict material properties, discover drugs, and analyze system behavior under various conditions \parencite{kukol2008molecular} \parencite{aktulga2012parallel}
+Molecular dynamics (MD) is a computational method used to analyze the interactions and movements of atoms and molecules. It offers better understanding of dynamic processes at atomic scale, such as diffusion, chemical reactions, and phase changes, making it an essential tool in physics, bioinformatics, molecular biology, materials science, and more. MD simulations are widely used to study protein folding, predict material properties, discover drugs, and analyze system behavior under various conditions \parencite{kukol2008molecular} \parencite{aktulga2012parallel}.
 % [\textbf{existingTuning second reference, Downloads/978-1-59745-177-2.pdf}].
 
 MD simulations begin with an initial configuration of particles, with specified positions and velocities. Forces acting on each particle are calculated using a force field, which defines the potential energy of the system. These forces are then translated into velocities and movements. Over discrete time steps, the positions and velocities of particles are updated, providing a dynamic view of the system's evolution.
@@ -10,7 +10,7 @@ MD simulations begin with an initial configuration of particles, with specified 
 
 \subsection{Computational Challenges and Optimizations}
 
-While MD is a powerful tool, it is computationally expensive, requiring a significant amount of resources to deliver accurate and reliable results. The main challenges include handling large system sizes, modeling long simulation times, and accurately capturing diverse interactions.
+While MD is a powerful tool, it is computationally expensive, requiring a significant amount of resources to deliver accurate and reliable results. The main challenges include handling large system sizes, modeling long simulation times, and more.
 
 \subsubsection{Short-Range Simulations} \label{sec:shortrange}
 
@@ -21,7 +21,7 @@ To balance computational efficiency and accuracy of results, approximations are 
 
 \subsubsection{Lennard-Jones Potential (LJ)}
 
-The Lennard-Jones 12-6 potential is a widely used function in molecular dynamics simulations to model interactions between particles, such as atoms or molecules. It describes the balance between short-range repulsion and long-range attraction forces. This balance is given by:
+The Lennard-Jones 12-6 potential is a widely used function in molecular dynamics simulations to model interactions between particles. It describes the balance between short-range repulsion and long-range attraction forces. This balance is given by:
 
 \[
 V(r) = 4\epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6} \right],
@@ -48,4 +48,4 @@ The Lennard-Jones potential is particularly suited for short-range interactions 
 \subsubsection{Newton's Third Law}
 
 An essential optimization in MD simulations is the application of Newton's third law, which states that every action has an equal and opposite reaction; or, the mutual actions of two bodies upon each other are always equal, and directed to contrary parts \parencite{frautschi1986mechanical}. 
- In particle simulations, this means the force that particle \(p_1\) exerts on \(p_2\) is equal and opposite to the force \(p_2\) exerts on \(p_1\). Using this symmetry halves the number of force calculations, significantly improving computational efficiency. In AutoPas, this optimization is implemented as the Newton3-optimization \parencite{gratl2022n}.
+In particle simulations, this means the force that particle \(p_1\) exerts on \(p_2\) is equal and opposite to the force \(p_2\) exerts on \(p_1\). Using this symmetry the number of force calculations is cut in half, significantly improving computational efficiency. In AutoPas, this optimization is implemented as the Newton3-optimization \parencite{gratl2022n}.
