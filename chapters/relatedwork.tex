@@ -1,0 +1,18 @@
+As discussed in the previous chapters, a significant portion of the computational time in molecular dynamics simulations is spent on calculating pairwise force interactions between particles. A common optimization technique is to store the nearby particles, which in the case of Verlet Lists involves maintaining neighbor lists, as previously explained.
+
+Since rebuilding these neighbor lists is computationally expensive, several works have focused on reducing this overhead. One such approach was presented in a previous thesis by Luis Gall \parencite{gall2023exploration}.
+
+Gall's work primarily focused on reducing the time spent on neighbor list rebuilds. To achieve this, he proposed a dynamic rebuild criterion that adapts based on particle movement, triggering updates only when necessary. This approach was advantageous for scenarios with a high velocity difference over time.
+
+Furthermore, Gall focused on a partial rebuild strategy, where only the neighbor lists affected by particle movement were updated. This method proved to be advantageous in large simulation domains, for a small Verlet skin size. 
+
+
+Beyond AutoPas, several molecular dynamics simulators also implement the neighbor indetification algorithms described in Section \ref{sec:neighbor_iden_algs}. Examples include:
+
+\begin{itemize}
+    \item LS1 MarDyn - A Linked Cells-based simulator optimized for large-scale parallel molecular dynamics simulations. \parencite{niethammer2014ls1}
+    \item LAMMPS - A molecular dynamics software package that employs Verlet Lists. \parencite{thompson2022lammps}
+    \item GROMACS - A high-performance molecular dynamics package that utilizes Verlet Cluster Lists. \parencite{abraham2015gromacs}
+\end{itemize}
+
+Unlike AutoPas, which dynamically selects the best suited algorithm based on runtime performance using tuning, these pieces of software rely on fixed algorithms that are optimized for specific types of simulations. While this allows them to be highly efficient in their intended use cases, they lack the flexibility to adapt to varying simulation conditions.

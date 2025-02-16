@@ -19,6 +19,71 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{abraham2015gromacs}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=e99cb15265ad314a3924c865f12e3df7}{%
+           family={Abraham},
+           familyi={A\bibinitperiod},
+           given={Mark\bibnamedelima James},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2213f41f144d10cb51f334f6d2aee0cb}{%
+           family={Murtola},
+           familyi={M\bibinitperiod},
+           given={Teemu},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c112d9b77fb3f5e13ae4527d2cd74bde}{%
+           family={Schulz},
+           familyi={S\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=886ec72507a4799abad12b1de61e631c}{%
+           family={Páll},
+           familyi={P\bibinitperiod},
+           given={Szilárd},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8fb1888e43e58adc5702e73c6f8c4597}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Jeremy\bibnamedelima C},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cddff82b78471ae84b21c2892b99c68b}{%
+           family={Hess},
+           familyi={H\bibinitperiod},
+           given={Berk},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=019496b778e152622cb5d67830d2f711}{%
+           family={Lindahl},
+           familyi={L\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{ba65ecc2819e8b8fd99bf70a8a9bfe88}
+      \strng{fullhash}{a10fa3d4d6bf3d00aa48adadfa46c877}
+      \strng{bibnamehash}{a10fa3d4d6bf3d00aa48adadfa46c877}
+      \strng{authorbibnamehash}{a10fa3d4d6bf3d00aa48adadfa46c877}
+      \strng{authornamehash}{ba65ecc2819e8b8fd99bf70a8a9bfe88}
+      \strng{authorfullhash}{a10fa3d4d6bf3d00aa48adadfa46c877}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SoftwareX}
+      \field{title}{GROMACS: High performance molecular simulations through multi-level parallelism from laptops to supercomputers}
+      \field{volume}{1}
+      \field{year}{2015}
+      \field{pages}{19\bibrangedash 25}
+      \range{pages}{7}
+    \endentry
     \entry{aktulga2012parallel}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=bdab9808340c84661623c3e921a0904a}{%
@@ -190,6 +255,28 @@
       \field{labeltitlesource}{title}
       \field{title}{The mechanical universe: Mechanics and heat}
       \field{year}{1986}
+    \endentry
+    \entry{gall2023exploration}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2029b76da24f30ee45adda3be56c7dcd}{%
+           family={Gall},
+           familyi={G\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2029b76da24f30ee45adda3be56c7dcd}
+      \strng{fullhash}{2029b76da24f30ee45adda3be56c7dcd}
+      \strng{bibnamehash}{2029b76da24f30ee45adda3be56c7dcd}
+      \strng{authorbibnamehash}{2029b76da24f30ee45adda3be56c7dcd}
+      \strng{authornamehash}{2029b76da24f30ee45adda3be56c7dcd}
+      \strng{authorfullhash}{2029b76da24f30ee45adda3be56c7dcd}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Exploration of Different Approaches for Implementing Verlet Lists in AutoPas}
+      \field{year}{2023}
     \endentry
     \entry{gratl2022n}{article}{}
       \name{author}{4}{}{%
@@ -381,31 +468,6 @@
       \field{pages}{3\bibrangedash 4}
       \range{pages}{2}
     \endentry
-    \entry{latex}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5d77435450d10a850a5b58577b9a456b}{%
-           family={Lamport},
-           familyi={L\bibinitperiod},
-           given={Leslie},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Addison-Wesley Professional}%
-      }
-      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
-      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{LaTeX : A Documentation Preparation System User's Guide and Reference Manual}
-      \field{year}{1994}
-    \endentry
     \entry{newcome2023towards}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=58f0445a790a34013d0fb28e06025e9c}{%
@@ -452,6 +514,92 @@
       \field{year}{2023}
       \field{pages}{115278}
       \range{pages}{1}
+    \endentry
+    \entry{niethammer2014ls1}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=5639341655dcdc5302f2933da5555964}{%
+           family={Niethammer},
+           familyi={N\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e437371c71a3f965826fb0dc4a593e0}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3c35e02dec6da180e91e71bd7d15601c}{%
+           family={Bernreuther},
+           familyi={B\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d84b664bb063e3e594337a1fb9212c5}{%
+           family={Buchholz},
+           familyi={B\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b9811e965d6c7ab569e20dd50bc04372}{%
+           family={Eckhardt},
+           familyi={E\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0a4c9e5978c9fc7db2cf8938f57991b}{%
+           family={Heinecke},
+           familyi={H\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d5e8f667ddff6535cfd153d6193e989}{%
+           family={Werth},
+           familyi={W\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26eafa3a34098b617e2a5381e1d2e42c}{%
+           family={Bungartz},
+           familyi={B\bibinitperiod},
+           given={Hans-Joachim},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7581cc8d00afca6db653e8dc9c81d685}{%
+           family={Glass},
+           familyi={G\bibinitperiod},
+           given={Colin\bibnamedelima W},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=002ff8087ab9d689be8bb65121b4dd20}{%
+           family={Hasse},
+           familyi={H\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACS Publications}%
+      }
+      \strng{namehash}{99cd5b895d819df07d1a8315089506b2}
+      \strng{fullhash}{9c3a07861f86ad1318f81b4ab11191b9}
+      \strng{bibnamehash}{9c3a07861f86ad1318f81b4ab11191b9}
+      \strng{authorbibnamehash}{9c3a07861f86ad1318f81b4ab11191b9}
+      \strng{authornamehash}{99cd5b895d819df07d1a8315089506b2}
+      \strng{authorfullhash}{9c3a07861f86ad1318f81b4ab11191b9}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of chemical theory and computation}
+      \field{number}{10}
+      \field{title}{ls1 mardyn: The massively parallel molecular dynamics code for large systems}
+      \field{volume}{10}
+      \field{year}{2014}
+      \field{pages}{4455\bibrangedash 4464}
+      \range{pages}{10}
     \endentry
     \entry{Maximilian_Praus_Thesis-1.pdf}{thesis}{}
       \name{author}{1}{}{%
@@ -541,6 +689,91 @@
       \field{volume}{50}
       \field{year}{2021}
       \field{pages}{101296}
+      \range{pages}{1}
+    \endentry
+    \entry{thompson2022lammps}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=9b07110cb7fec51d956a25a152641ee2}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={Aidan\bibnamedelima P},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ab07fc49f46f452182907a585fbb89b7}{%
+           family={Aktulga},
+           familyi={A\bibinitperiod},
+           given={H\bibnamedelima Metin},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d74c00ca5b4c3e5a83b542c97a4528f3}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a5c58bd0e1b905ed1bd6f37a4b52fea2}{%
+           family={Bolintineanu},
+           familyi={B\bibinitperiod},
+           given={Dan\bibnamedelima S},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70027b094d66dae5e87e044e3add8012}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={W\bibnamedelima Michael},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ab0e67069c8cac5bb23fe869adde335b}{%
+           family={Crozier},
+           familyi={C\bibinitperiod},
+           given={Paul\bibnamedelima S},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb71727d615fb7e28451f9bd34e217c0}{%
+           family={In't\bibnamedelima Veld},
+           familyi={I\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Pieter\bibnamedelima J},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aaaa038b1501a3bccd255d841f5c95cc}{%
+           family={Kohlmeyer},
+           familyi={K\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cb6ebce4d3ca4ca57c13af59c4ea9a5}{%
+           family={Moore},
+           familyi={M\bibinitperiod},
+           given={Stan\bibnamedelima G},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a2fe5337214161c361f4b38493f3d965}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={Trung\bibnamedelima Dac},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{723756c163f14e470f94d5407af11585}
+      \strng{fullhash}{080ba67b4b88ef2706763913e4c73e7a}
+      \strng{bibnamehash}{080ba67b4b88ef2706763913e4c73e7a}
+      \strng{authorbibnamehash}{080ba67b4b88ef2706763913e4c73e7a}
+      \strng{authornamehash}{723756c163f14e470f94d5407af11585}
+      \strng{authorfullhash}{080ba67b4b88ef2706763913e4c73e7a}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer Physics Communications}
+      \field{title}{LAMMPS-a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales}
+      \field{volume}{271}
+      \field{year}{2022}
+      \field{pages}{108171}
       \range{pages}{1}
     \endentry
     \entry{wang2020lennard}{article}{}

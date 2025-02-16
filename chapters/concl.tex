@@ -1,0 +1,9 @@
+This thesis investigated the Fast-Particle-Buffer as a method to reduce the computational cost of frequent neighbor list rebuilds in AutoPas. The approach aimed to improve simulation efficiency by temporarily storing fast particles instead of immediately rebuilding neighbor lists.  
+
+Through a series of experiments, the performance of the buffer was evaluated under different scenarios, thresholds, and frequencies. The results showed that while the buffer did not significantly improve performance in smaller simulations, it provided measurable benefits in longer-running simulations, with a maximum observed speedup of 6\%.  
+
+Further analysis revealed that remainder traversal time remained a key limiting factor, often negating the benefits of reduced neighbor list rebuilds. Additionally, the effectiveness of the buffer depended on the characteristics of the simulation.
+
+Future work could explore hardware-dependent optimizations, integrating adaptive rebuild criteria, and exploring group-based fast particle classification. Additionally, optimizing buffer traversal could further reduce remainder traversal overhead, making the approach more performative.  
+
+Overall, while the Fast-Particle-Buffer presents a good strategy for improving simulation performance, its benefits are highly scenario-dependent. With further refinements, it could become a useful optimization technique in AutoPas.

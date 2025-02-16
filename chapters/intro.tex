@@ -1,18 +1,15 @@
 \chapter{Introduction}\label{chapter:introduction}
 
-\section{Section}
-Citation test~\parencite{latex}.
-This is the introduction of the thesis.
 
-\lipsum[1]
+Simulating particle interactions is a fundamental problem in computational physics, molecular dynamics, and engineering applications. Efficiently handling these simulations is crucial, particularly in large-scale systems where millions of particles interact over extended time periods. These simulations can be very computationally demanding, making runtime optimization a critical objective to improve performance and scalability. \parencite{aktulga2012parallel}
 
 
-\begin{figure}[htpb]
-    \centering
-    \begin{tabular}{c}
-    \begin{lstlisting}[language=SQL]
-      SELECT * FROM tbl WHERE tbl.str = "str"
-    \end{lstlisting}
-    \end{tabular}
-    \caption[Example listing]{An example for a source code listing.}\label{fig:sample-listing}
-  \end{figure}
+AutoPas is an auto-tuning C++ library designed to optimize short-range particle simulations by selecting the most efficient algorithm for a given simulation. The library implements various algorithms, including Verlet Lists. However, since each simulation has is unique, there is no single best algorithm that performs optimally in all cases. \parencite{seckler2021autopas}
+
+A key challenge in Verlet Lists is the overhead caused by frequent neighbor list rebuilds. As particles move dynamically within the simulation domain, neighbor lists—which store information about particles within a cutoff region, including a buffer defined by the Verlet skin—become outdated and must be recomputed periodically. This rebuilding is computationally expensive, impacting overall simulation performance.
+
+This thesis investigates an alternative approach: the Fast-Particle-Buffer mechanism. Instead of rebuilding neighbor lists whenever a fast-moving particle crosses a threshold, the buffer temporarily stores these particles and avoids neighbor lists rebuilding. The goal is to analyze whether this strategy can reduce computational overhead and improve overall simulation performance.
+
+% To evaluate this approach, various simulation scenarios were tested, each chosen to reflect different particle behaviors and interaction dynamics. The experiments were conducted using AutoPas, and the results provide insights into when and where the Fast-Particle-Buffer mechanism offers advantages.
+
+The structure of this thesis is as follows: Chapter 2 provides a theoretical background on molecular dynamics and computational challenges in particle simulations.  Chapter 3 introduces AutoPas, while Chapter 4 presents related projects. Chapter 5 details the implementation of the Fast-Particle-Buffer mechanism. Chapter 6 presents experimental results, analyzing the efficiency of the proposed approaches across various scenarios. Finally, Chapter 7 discusses potential future optimizations, followed by Chapter 8, which summarizes the key findings and conclusions of this work.
