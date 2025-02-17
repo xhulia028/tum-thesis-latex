@@ -325,7 +325,7 @@
       \field{pages}{108262}
       \range{pages}{1}
     \endentry
-    \entry{gratl2019autopas}{inproceedings}{}
+    \entry{gratl2019autopas}{article}{}
       \name{author}{5}{}{%
         {{un=1,uniquepart=given,hash=0c0da6b3f104d2a5014f5fa5065979b6}{%
            family={Gratl},
@@ -377,7 +377,7 @@
       \field{pages}{748\bibrangedash 757}
       \range{pages}{10}
     \endentry
-    \entry{jones1924determination}{article}{}
+    \entry{jones1924determination}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=dbd0764cb57f87952e983a19948eac69}{%
            family={Jones},
@@ -407,7 +407,7 @@
       \field{pages}{463\bibrangedash 477}
       \range{pages}{15}
     \endentry
-    \entry{knapek2007numerical}{misc}{}
+    \entry{knapek2007numerical}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=7435490725b7033b071f205a9a0cb3e0}{%
            family={Knapek},

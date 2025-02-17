@@ -3,8 +3,8 @@
 % TODO: decide if one-sided/two-sided
 %\documentclass[headsepline,footsepline,footinclude=false,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc,BCOR=12mm,DIV=12]{scrbook} % two-sided
 \documentclass[headsepline,footsepline,footinclude=false,oneside,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc]{scrbook} % one-sided
-
 % TODO: change citation style in settings
+
 \input{settings}
 
 % TODO: change thesis information
@@ -17,6 +17,7 @@
 \newcommand*{\getAdvisor}{Samuel James Newcome, M.Sc.}
 \newcommand*{\getSubmissionDate}{17.02.2025}
 \newcommand*{\getSubmissionLocation}{Munich}
+
 
 \usepackage{lipsum}
 \usepackage{ulem}
@@ -39,6 +40,9 @@
 % \renewcommand{\footnoterule}{}
 
 % \KOMAoptions{footsepline=false}
+
+\DeclareFieldFormat{title}{\mkbibemph{#1}} 
+
 
 \definecolor{commentgray}{rgb}{0.5, 0.5, 0.5}
 \definecolor{keywordred}{rgb}{0.9, 0.3, 0.3}
@@ -129,8 +133,9 @@
 
 \microtypesetup{protrusion=false}
 \listoffigures{}
-\listoftables{}
+% \listoftables{}
 \microtypesetup{protrusion=true}
+\renewcommand*{\bibfont}{\raggedright} % Align bibliography ragged right to prevent overfull hboxes
 \printbibliography{}
 
 \end{document}

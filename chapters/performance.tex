@@ -30,9 +30,13 @@ Subsequent experiments were performed on CoolMUC4, the successor to CoolMUC2. Co
 
 The code was compiled with GCC 11.2.0 in CoolMuc2 and GCC 12.2.0 in CoolMuc4. 
 
+\section{Deletion Function}
 
-% \textbf{MENTION PROFILER and the performance measurements are performed with VTune3 version 2021.7.1 (build
-% 619561).}
+The additional delete function did not yield significant performance improvements. Its primary use case arises when tuning is enabled, yet for the majority of the experiments, as it will be explained throughout this section, tuning was turned off, making its impact minimal. Moreover, since the focus of this thesis is on Verlet Lists, which rely on neighbor lists, the function has limited applicability. In these types of containers, particles cannot be fully deleted but must instead be marked as dummy particles to maintain neighbor list integrity.  
+
+The only scenario where this function could be beneficial is when tuning is enabled and a combination of Linked Cells and Verlet Lists is used, as it would primarily benefit Linked Cells. However, considering the primary focus of this work, the function was not extensively utilized. Additionally, implementing it introduced extra computational overhead and increased code complexity, as it required implementation across all container types in AutoPas, as described in the Implementation section.
+
+
 
 % ======================================================================
 \section{Scenario descriptions}
@@ -357,7 +361,7 @@ Given that performance improvements remained minor—mostly 1 to 2 seconds—the
 5\%, 1\%, 0.5\%, and 0.1\%, along with ultra-small thresholds of 0.01\%, 0.001\%, and 0\%, to analyze how performance evolves as the Fast-Particle-Buffer branch converges toward the Dynamic-VL-Merge branch. The primary goal of this extension was to confirm that any observed performance gains were genuinely due to the buffer mechanism.
 
 
-The experimental data is presented as a box plot in Fig.\ref{fig:percentage_falling}, where red dots represent the mean runtime for each experiment. Only frequencies from 20 to 300 are shown, as including all frequencies would make the graph appear too cluttered. However, these selected frequencies cover the main bulk of the data and are the most representative ones. The rest of the data can be found in the provided \href{https://github.com/xhulia028/GraphView}{\texttt{repository}}. The key findings are as follows:
+The experimental data is presented as a box plot in Figure \ref{fig:percentage_falling}, where red dots represent the mean runtime for each experiment. Only frequencies from 20 to 300 are shown, as including all frequencies would make the graph appear too cluttered. However, these selected frequencies cover the main bulk of the data and are the most representative ones. The rest of the data can be found in the provided \href{https://github.com/xhulia028/GraphView}{\texttt{repository}}. The key findings are as follows:
 
 \begin{itemize}
     \item On average, thresholds between 0.1\% and 1\% provided the best performance.
@@ -369,7 +373,7 @@ The experimental data is presented as a box plot in Fig.\ref{fig:percentage_fall
 
 \begin{center}
     \includegraphics[width=\linewidth]{graphs/percentage_vlcc08.png}
-    \captionof{figure}{Percentage Experiments in Falling Drop \texttt{vlc\_c08}}
+    \captionof{figure}{Percentage Experiments in Falling Drop (vlc\_c08)}
     \label{fig:percentage_falling}
 \end{center}
 
@@ -386,7 +390,7 @@ From prior frequency experiments, it was observed that the particle buffer perfo
 It is important to note that 1\% and 5\% of 4 million correspond to 40,000 and 200,000 particles, respectively, which exceed the total particle count of the other scenarios.
 
 \textbf{Results for \texttt{vlc\_c08}:}  
-Throughout this scenario the average runtime for the Dynamic-VL-Merge branch consisted of 9 hours and 59 minutes (Fig.\ref{fig:equ_normla_vlcc08}). When the threshold was set to 5\%, the fast particle buffer demonstrated a performance improvement of 4.2\% (equivalent to saving 25 minutes) at frequency 30. At frequency 20, the improvement was 2.5\% (saving 15 minutes). For frequency 10, the runtime was marginally worse by 1\%. However, for larger frequencies, such as 40 and 50, there was a significant slowdown of 44\% and 111\%, respectively.
+Throughout this scenario the average runtime for the Dynamic-VL-Merge branch consisted of 9 hours and 59 minutes (Figure \ref{fig:equ_normla_vlcc08}). When the threshold was set to 5\%, the fast particle buffer demonstrated a performance improvement of 4.2\% (equivalent to saving 25 minutes) at frequency 30. At frequency 20, the improvement was 2.5\% (saving 15 minutes). For frequency 10, the runtime was marginally worse by 1\%. However, for larger frequencies, such as 40 and 50, there was a significant slowdown of 44\% and 111\%, respectively.
 
 For the 1\% threshold, fluctuations were less pronounced compared to the 5\% threshold. The runtime for all frequencies was closer to that of the Dynamic-VL-Merge branch. A performance improvement of 2.2\% (equivalent to 13 minutes) was observed at frequency 20, and 3\% (18 minutes) at frequency 30. For frequencies 10 and 50, the runtime was nearly identical to the parent branch, differing by only ±1 minute. At frequency 40, there was a minor slowdown of 1\% (6 minutes), which is relatively insignificant.
 
@@ -397,14 +401,14 @@ For the Dynamic-VL-Merge branch, the shortest runtime was 9 hours and 47 minutes
 \begin{center}
     \includegraphics[width=0.8\linewidth]{graphs/spinodalDecomposition/vlcc08.png}
     \captionsetup{hypcap=false}
-    \captionof{figure}{Frequency vs Time for Equilibration vlc\_c08}
+    \captionof{figure}{Frequency vs Time for Equilibration (vlc\_c08)}
     \label{fig:equ_normla_vlcc08}
 \end{center}
 
 
 
 \textbf{Results for \texttt{lc\_c08}:}  
-Using LinkedCellsReferences with traversal \texttt{lc\_c08} (Fig.\ref{fig:equ_normla_lcc08}), the average runtime for the Dynamic-VL-Merge branch was 14 hours and 27 minutes, approximately 4 hours and 30 minutes longer than the \texttt{vlc\_c08} configuration.
+Using LinkedCellsReferences with traversal \texttt{lc\_c08} (Figure \ref{fig:equ_normla_lcc08}), the average runtime for the Dynamic-VL-Merge branch was 14 hours and 27 minutes, approximately 4 hours and 30 minutes longer than the \texttt{vlc\_c08} configuration.
 
 At a 5\% threshold, a 1.94\% performance improvement (16 minutes) was observed at frequency 30, with a smaller 0.9\% improvement (7 minutes) at frequency 20. However, for all other frequencies, no improvement was recorded. In contrast, at frequencies 40 and 50, the runtime of the Fast-Particle-Buffer branch increased significantly. At frequency 50, the performance degraded to the point where the simulation timed out.
 
@@ -417,7 +421,7 @@ For this container-traversal combination, the fastest experiment overall was ach
 \begin{center}
     \includegraphics[width=0.8\linewidth]{graphs/spinodalDecomposition/lcc08.png}
     \captionsetup{hypcap=false}
-    \captionof{figure}{Frequency vs Time for Equilibration lc\_c08}
+    \captionof{figure}{Frequency vs Time for Equilibration (lc\_c08)}
     \label{fig:equ_normla_lcc08}
 \end{center}
     
@@ -429,7 +433,7 @@ For this container-traversal combination, the fastest experiment overall was ach
 
 \subsubsection{Equilibration with Increased Temperature}
 
-To further amplify the number of fast particles and make the experiment more dynamic, the temperature of the system in the equilibration scenario was increased. This adjustment resulted in molecules with higher kinetic energy, thereby increasing their speed. The focus of this experiment remained on the same frequencies as in previous tests, with the addition of a new frequency, 5, to further investigate performance trends at lower rebuild intervals. The YAML file used for this setup can be found in the appendix [\textbf{link YAML file in the appendix}]. For this experiment, the \texttt{vlc\_c08} traversal configuration was used, as the \texttt{lc\_c08} configuration proved too inefficient, resulting in timeouts at the maximum allowed runtime of 16 hours.
+To further amplify the number of fast particles and make the experiment more dynamic, the temperature of the system in the equilibration scenario was increased. This adjustment resulted in molecules with higher kinetic energy, thereby increasing their speed. The focus of this experiment remained on the same frequencies as in previous tests, with the addition of a new frequency, 5, to further investigate performance trends at lower rebuild intervals. For this experiment, the \texttt{vlc\_c08} traversal configuration was used, as the \texttt{lc\_c08} configuration proved too inefficient, resulting in timeouts at the maximum allowed runtime of 16 hours.
 
 In this configuration, the fast particle buffer with a threshold of 1\% achieved an 8.6\% performance improvement at frequency 10. This translates to a time saving of 60 minutes from a total runtime of 11 hours and 42 minutes. Similarly, the fast particle buffer with a threshold of 5\% exhibited a 7.8\% performance improvement at the same frequency, resulting in a 55-minute reduction from the same total runtime.
 
@@ -438,16 +442,18 @@ For the remaining frequencies, neither version of the fast particle buffer outpe
 \begin{center}
 \includegraphics[width=0.8\linewidth]{graphs/spinodalDecomposition/vlcc08_increased.png}
 \captionsetup{hypcap=false}
-\captionof{figure}{Frequency vs Time for Equilibration with Increased Temperature}
+\captionof{figure}{Frequency vs Time for Equilibration with Increased Temperature (vlc\_c08)}
 \label{fig:equilibration_plot_increased_temp}
 \end{center}
 
 
-first of all there are like 300k halo aprticles, so there is already time being spent on remainder traversals bacuse of them, hence the difference in not that much as in the other experiments where there were no halo particles. also for 1 and 5 percent for freq like 30 the 1 percent doesnt even get fullfileed. so why is there a performance difference between 1\% and 5\% threshold??????????
+% first of all there are like 300k halo aprticles, so there is already time being spent on remainder traversals bacuse of them, hence the difference in not that much as in the other experiments where there were no halo particles. also for 1 and 5 percent for freq like 30 the 1 percent doesnt even get fullfileed. so why is there a performance difference between 1\% and 5\% threshold??????????
 
-for the conclusion: if there are halo nice use buffer, if no use it only for non dynamic spots.
+% for the conclusion: if there are halo nice use buffer, if no use it only for non dynamic spots.
 
-u can either play with the threshold, or choose an appropriate frequency which is big enough, but a threshld is still recommended to cover those times where there is a boom of fast particles in the buffer suddendly. so there should be a sweet spot. at aorund 1\% of particles
+% u can either play with the threshold, or choose an appropriate frequency which is big enough, but a threshld is still recommended to cover those times where there is a boom of fast particles in the buffer suddendly. so there should be a sweet spot. at aorund 1\% of particles
+
+% for frequency
 
 \section{Checkpoint Experiments}
 
@@ -473,8 +479,10 @@ As shown in the figure, the two-phase approach outperformed the standard 1\% thr
 \begin{center}
     \includegraphics[width=0.8\linewidth]{graphs/checkpoint.png}
     \captionsetup{hypcap=false}
-    \captionof{figure}{Frequency vs Time for Falling Drop vlc\_c08 in Chekcpoint}
+    \captionof{figure}{Chekcpoint Experiments: Frequency vs Time for Falling Drop (vlc\_c08)}
     \label{fig:checkpoint}
 \end{center}
+
+
 
 

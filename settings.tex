@@ -26,7 +26,21 @@
 \usepackage{caption}
 \usepackage[hidelinks]{hyperref} % hidelinks removes colored boxes around references and links
 
+
+
 \bibliography{bibliography}
+
+\AtBeginBibliography{\sloppy}
+\pretocmd{\bibsetup}{\hyphenpenalty=5000 \tolerance=1000 \emergencystretch=3em}{}{}
+\DeclareFieldFormat{title}{\parbox[t]{\dimexpr\linewidth-1em}{\textbf{#1}}}
+\pretocmd{\bibsetup}{\sloppy\emergencystretch=3em}{}{}
+
+
+
+% \DeclareFieldFormat{title}{\textbf{\emph{\nohyphens{#1}}}} % Allow hyphenation in titles
+% \DeclareFieldFormat{journaltitle}{\textit{\nohyphens{#1}}} % Allow hyphenation in journals
+
+
 
 \setkomafont{disposition}{\normalfont\bfseries} % use serif font for headings
 \linespread{1.05} % adjust line spread for mathpazo font

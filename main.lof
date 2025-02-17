@@ -13,15 +13,15 @@
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Constant Cube}}{20}{figure.5.3}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Equilibration \blx@tocontentsinit {0}\parencite {Maximilian_Praus_Thesis-1.pdf}}}{20}{figure.5.4}%
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Comparison of Frequency vs Time with Tuning}}{23}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Compute interactions vs. remainder traversal in Falling Drop (vlc\_c08)}}{24}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Compute interactions vs. remainder traversal in Falling Drop (vlc\_c08)}}{25}{figure.caption.41}%
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Time spent on neighbor list rebuilds in Falling Drop (vlc\_c08)}}{25}{figure.caption.42}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Buffer size over iterations in Falling Drop (vlc\_c08)}}{25}{figure.caption.43}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Compute Interactions vs Remainder Traversal in Constant Velocity Cube (vlp\_c08)}}{29}{figure.5.9}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Percentage Experiments in Falling Drop \texttt {vlc\_c08}}}{31}{figure.5.10}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Frequency vs Time for Equilibration vlc\_c08}}{33}{figure.5.11}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Frequency vs Time for Equilibration lc\_c08}}{34}{figure.5.12}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Frequency vs Time for Equilibration with Increased Temperature}}{35}{figure.5.13}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Frequency vs Time for Falling Drop vlc\_c08 in Chekcpoint}}{37}{figure.5.14}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Buffer size over iterations in Falling Drop (vlc\_c08)}}{26}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Compute Interactions vs Remainder Traversal in Constant Velocity Cube (vlp\_c08)}}{30}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Percentage Experiments in Falling Drop (vlc\_c08)}}{32}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Frequency vs Time for Equilibration (vlc\_c08)}}{33}{figure.5.11}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Frequency vs Time for Equilibration (lc\_c08)}}{34}{figure.5.12}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Frequency vs Time for Equilibration with Increased Temperature (vlc\_c08)}}{35}{figure.5.13}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Chekcpoint Experiments: Frequency vs Time for Falling Drop (vlc\_c08)}}{37}{figure.5.14}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
