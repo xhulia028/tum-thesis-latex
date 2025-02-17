@@ -18,49 +18,47 @@
 \contentsline {subsection}{\numberline {2.2.3}Traversals}{7}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Base Steps in AutoPas}{8}{subsection.2.2.4}%
 \contentsline {subsubsection}{\nonumberline c01 Base Step}{8}{subsubsection*.20}%
-\contentsline {subsubsection}{\nonumberline c18 Base Step}{8}{subsubsection*.22}%
-\contentsline {subsubsection}{\nonumberline c08 Base Step}{8}{subsubsection*.24}%
+\contentsline {subsubsection}{\nonumberline c08 Base Step}{8}{subsubsection*.22}%
 \contentsline {subsection}{\numberline {2.2.5}Traversal Strategies}{8}{subsection.2.2.5}%
-\contentsline {subsubsection}{\nonumberline \texttt {lc\_c08}}{8}{subsubsection*.26}%
-\contentsline {subsubsection}{\nonumberline \texttt {vlc\_c08}}{9}{subsubsection*.28}%
-\contentsline {subsubsection}{\nonumberline \texttt {vcl\_c06}}{9}{subsubsection*.30}%
+\contentsline {subsubsection}{\nonumberline \texttt {lc\_c08}}{8}{subsubsection*.24}%
+\contentsline {subsubsection}{\nonumberline \texttt {vlc\_c08}}{8}{subsubsection*.26}%
+\contentsline {subsubsection}{\nonumberline \texttt {vcl\_c06}}{9}{subsubsection*.28}%
 \contentsline {subsection}{\numberline {2.2.6}Auto-Tuning}{9}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Particle Types}{9}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.8}Interaction Computation in AutoPas}{10}{subsection.2.2.8}%
 \contentsline {chapter}{\numberline {3}Related Work}{11}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Implementation}{12}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Initial Problem}{12}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Particle Buffer}{13}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Particle Buffer Mechanism}{13}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Interaction Computation}{14}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}DeleteFunction}{14}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Updated Code}{15}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Implementation Details}{16}{subsection.4.3.2}%
-\contentsline {subsubsection}{\nonumberline In \texttt {LinkedCells.h}}{16}{subsubsection*.33}%
-\contentsline {subsubsection}{\nonumberline In \texttt {VerletListsLinkedBase.h}}{17}{subsubsection*.35}%
-\contentsline {section}{\numberline {4.4}CSV File}{17}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Performance}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Test System Specifications}{19}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Scenario descriptions}{19}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Falling Drop}{20}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Exploding Liquid}{20}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Constant Velocity Cube}{20}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Spinodal Decomposition Equilibration}{20}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}Experimental Strategies and Findings}{21}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Initial Test Series}{22}{subsection.5.3.1}%
-\contentsline {subsubsection}{\nonumberline Frequency Tests}{22}{subsubsection*.37}%
-\contentsline {subsubsection}{\nonumberline Refined Tests Without Tuning Spikes}{23}{subsubsection*.40}%
-\contentsline {paragraph}{\nonumberline Falling Drop:}{25}{paragraph*.42}%
-\contentsline {paragraph}{\nonumberline Constant Velocity Cube:}{27}{paragraph*.47}%
-\contentsline {paragraph}{\nonumberline Exploding Liquid:}{28}{paragraph*.49}%
-\contentsline {subsubsection}{\nonumberline Iteration Tests}{29}{subsubsection*.51}%
-\contentsline {subsubsection}{\nonumberline Individual Test Results}{29}{subsubsection*.53}%
+\contentsline {section}{\numberline {4.1}Particle Buffer Mechanism}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Deletion of Particles}{14}{section.4.2}%
+\contentsline {subsubsection}{\nonumberline In \texttt {LinkedCells.h}}{15}{subsubsection*.31}%
+\contentsline {subsubsection}{\nonumberline In \texttt {VerletListsLinkedBase.h}}{15}{subsubsection*.33}%
+\contentsline {subsection}{\numberline {4.2.1}Updated Code}{15}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Simulation Data Logging}{16}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Performance}{18}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Test System Specifications}{18}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Scenario descriptions}{18}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Falling Drop}{19}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Exploding Liquid}{19}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Constant Velocity Cube}{19}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Equilibration}{19}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Results and Findings}{20}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Initial Test Series}{21}{subsection.5.3.1}%
+\contentsline {subsubsection}{\nonumberline Frequency Tests}{21}{subsubsection*.35}%
+\contentsline {subsubsection}{\nonumberline Refined Tests Without Tuning}{22}{subsubsection*.38}%
+\contentsline {paragraph}{\nonumberline Falling Drop:}{24}{paragraph*.40}%
+\contentsline {paragraph}{\nonumberline Constant Velocity Cube:}{27}{paragraph*.45}%
+\contentsline {paragraph}{\nonumberline Exploding Liquid:}{27}{paragraph*.47}%
+\contentsline {subsubsection}{\nonumberline Iteration Tests}{28}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline Individual Test Results}{28}{subsubsection*.51}%
 \contentsline {subsection}{\numberline {5.3.2}Percentage Experiments}{30}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Equilibration}{32}{subsection.5.3.3}%
-\contentsline {subsubsection}{\nonumberline Equilibration with Increased Temperature}{35}{subsubsection*.55}%
-\contentsline {section}{\numberline {5.4}Checkpoint Experiments}{36}{section.5.4}%
+\contentsline {subsection}{\numberline {5.3.3}Equilibration}{31}{subsection.5.3.3}%
+\contentsline {subsubsection}{\nonumberline Equilibration with Increased Temperature}{34}{subsubsection*.53}%
+\contentsline {section}{\numberline {5.4}Checkpoint Experiments}{35}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Future Work}{38}{chapter.6}%
 \contentsline {chapter}{\numberline {7}Conclusion}{39}{chapter.7}%
 \contentsline {chapter}{\numberline {A}Appendix}{40}{appendix.A}%
-\contentsline {chapter}{\nonumberline List of Figures}{49}{chapter*.64}%
-\contentsline {chapter}{\nonumberline List of Tables}{50}{chapter*.65}%
-\contentsline {chapter}{\nonumberline Bibliography}{51}{chapter*.66}%
+\contentsline {section}{\numberline {A.1}Understanding \texttt {.yaml} files}{40}{section.A.1}%
+\contentsline {chapter}{\nonumberline List of Figures}{49}{chapter*.62}%
+\contentsline {chapter}{\nonumberline List of Tables}{50}{chapter*.63}%
+\contentsline {chapter}{\nonumberline Bibliography}{51}{chapter*.64}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

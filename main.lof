@@ -4,20 +4,20 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Lennard-Jones Potential \blx@tocontentsinit {0}\parencite {inproceedings}}}{3}{figure.caption.7}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Neighbor Identification Algorithms in AutoPas \blx@tocontentsinit {0}\parencite {gratl2022n}}}{7}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Base Steps Approaches \blx@tocontentsinit {0}\parencite {newcome2023towards}}}{9}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Base Step Approaches \blx@tocontentsinit {0}\parencite {newcome2023towards}}}{9}{figure.caption.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Falling Drop \blx@tocontentsinit {0}\parencite {gratl2022n}}}{21}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Exploding Liquid \blx@tocontentsinit {0}\parencite {seckler2021autopas}}}{21}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Constant Cube}}{21}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Equilibration \blx@tocontentsinit {0}\parencite {Maximilian_Praus_Thesis-1.pdf}}}{21}{figure.5.4}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Comparison of Frequency vs Time with Tuning}}{24}{figure.caption.38}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Compute interactions versus Remainder traversal Falling Drop Vlc\_c08}}{25}{figure.caption.43}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Time spent rebuilding neighbor lists in Falling Drop Vlc\_c08}}{26}{figure.caption.44}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Buffer Size throughout Iterations in Falling Drop Vlc\_c08}}{26}{figure.caption.45}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces \scriptsize Compute Interactions vs Remainder Traversal in Constant Velocity Cube \texttt {vlp\_c08}.}}{30}{figure.5.9}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Percentage Experiments in Falling Drop \texttt {vlc\_c08}}}{32}{figure.5.10}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Falling Drop \blx@tocontentsinit {0}\parencite {gratl2022n}}}{20}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Exploding Liquid \blx@tocontentsinit {0}\parencite {seckler2021autopas}}}{20}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Constant Cube}}{20}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Equilibration \blx@tocontentsinit {0}\parencite {Maximilian_Praus_Thesis-1.pdf}}}{20}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Comparison of Frequency vs Time with Tuning}}{23}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Compute interactions vs. remainder traversal in Falling Drop (vlc\_c08)}}{24}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Time spent on neighbor list rebuilds in Falling Drop (vlc\_c08)}}{25}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Buffer size over iterations in Falling Drop (vlc\_c08)}}{25}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Compute Interactions vs Remainder Traversal in Constant Velocity Cube (vlp\_c08)}}{29}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Percentage Experiments in Falling Drop \texttt {vlc\_c08}}}{31}{figure.5.10}%
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Frequency vs Time for Equilibration vlc\_c08}}{33}{figure.5.11}%
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Frequency vs Time for Equilibration lc\_c08}}{34}{figure.5.12}%
 \contentsline {figure}{\numberline {5.13}{\ignorespaces Frequency vs Time for Equilibration with Increased Temperature}}{35}{figure.5.13}%
@@ -25,13 +25,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Comparison of Frequency vs Time for Falling Drop Experiments}}{41}{figure.caption.56}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Comparison of Frequency vs Time for Exploding Liquid Experiments}}{42}{figure.caption.57}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Comparison of Frequency vs Time for Constant Velocity Cube Experiments}}{43}{figure.caption.58}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Comparison of Compute Interactions and Remainder Traversal for Exploding Liquid Experiments}}{44}{figure.caption.59}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Comparison of Frequency vs Iterations with Tuning}}{45}{figure.caption.60}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Comparison of Iteration vs Time for Falling Drop Experiments}}{46}{figure.caption.61}%
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Comparison of Iteration vs Time for Exploding Liquid Experiments}}{47}{figure.caption.62}%
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Comparison of Iteration vs Time for Constant Velocity Cube Experiments}}{48}{figure.caption.63}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Comparison of Frequency vs Time for Falling Drop Experiments}}{41}{figure.caption.54}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Comparison of Frequency vs Time for Exploding Liquid Experiments}}{42}{figure.caption.55}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Comparison of Frequency vs Time for Constant Velocity Cube Experiments}}{43}{figure.caption.56}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Comparison of Compute Interactions and Remainder Traversal for Exploding Liquid Experiments}}{44}{figure.caption.57}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Comparison of Frequency vs Iterations with Tuning}}{45}{figure.caption.58}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Comparison of Iteration vs Time for Falling Drop Experiments}}{46}{figure.caption.59}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Comparison of Iteration vs Time for Exploding Liquid Experiments}}{47}{figure.caption.60}%
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Comparison of Iteration vs Time for Constant Velocity Cube Experiments}}{48}{figure.caption.61}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

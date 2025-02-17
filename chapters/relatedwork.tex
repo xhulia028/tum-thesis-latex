@@ -2,12 +2,12 @@ As discussed in the previous chapters, a significant portion of the computationa
 
 Since rebuilding these neighbor lists is computationally expensive, several works have focused on reducing this overhead. One such approach was presented in a previous thesis by Luis Gall \parencite{gall2023exploration}.
 
-Gall's work primarily focused on reducing the time spent on neighbor list rebuilds. To achieve this, he proposed a dynamic rebuild criterion that adapts based on particle movement, triggering updates only when necessary. This approach was advantageous for scenarios with a high velocity difference over time.
+Gall's work primarily focused on reducing the time spent on neighbor list rebuilds. To achieve this, he proposed a dynamic rebuild criterion that adapts based on particle movement, triggering updates only when necessary. This thesis builds upon his work on dynamic containers, by further exploring methods to optimize neighbor list management and reduce unnecessary computations.
 
-Furthermore, Gall focused on a partial rebuild strategy, where only the neighbor lists affected by particle movement were updated. This method proved to be advantageous in large simulation domains, for a small Verlet skin size. 
+Furthermore, Gall also focused on a partial rebuild strategy, where only the neighbor lists affected by particle movement were updated. This method proved to be advantageous in large simulation domains, for a small Verlet skin size.
 
 
-Beyond AutoPas, several molecular dynamics simulators also implement the neighbor indetification algorithms described in Section \ref{sec:neighbor_iden_algs}. Examples include:
+Beyond AutoPas, several molecular dynamics simulators also implement the neighbor identification algorithms described in Section \ref{sec:neighbor_iden_algs}. Examples include:
 
 \begin{itemize}
     \item LS1 MarDyn - A Linked Cells-based simulator optimized for large-scale parallel molecular dynamics simulations. \parencite{niethammer2014ls1}

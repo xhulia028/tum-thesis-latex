@@ -1,181 +1,307 @@
-\section{Initial Problem}
-Simulations in AutoPas are configured using parameters specified in a \texttt{.yaml} file, which defines the conditions of the simulation. Examples of such files can be found in the appendix \ref{sec:appendix}. The key fields relevant to this thesis are:
+% \section{Initial Problem}
+% Simulations in AutoPas are configured using parameters specified in a \texttt{.yaml} file, which defines the conditions of the simulation. Examples of such files can be found in the appendix \ref{sec:appendix}. The key fields relevant to this thesis are:
 
-\begin{verbatim}
-container                        : # List of containers to choose from
-verlet-rebuild-frequency         : # Frequency of neighbor list rebuilds
-verlet-skin-radius               : # Distance within which a particle is 
-                                   # stored in the neighbor list
-data-layout                      : # Data storage format (AoS or SoA)
-traversal                        : # List of traversals to choose from
-newton3                          : # Boolean value determining if Newton's 
-                                   # third law is enabled
-iterations                       : # Number of iterations
-\end{verbatim}
+% \begin{verbatim}
+% container                        : # List of containers to choose from
+% verlet-rebuild-frequency         : # Frequency of neighbor list rebuilds
+% verlet-skin-radius               : # Distance within which a particle is 
+%                                    # stored in the neighbor list
+% data-layout                      : # Data storage format (AoS or SoA)
+% traversal                        : # List of traversals to choose from
+% newton3                          : # Boolean value determining if Newton's 
+%                                    # third law is enabled
+% iterations                       : # Number of iterations
+% \end{verbatim}
 
-Rebuilding neighbor lists is computationally expensive, so it is advantageous to reuse these lists for as many iterations as possible. Neighbor lists are generated for each particle, containing references to all particles within the cutoff range. To enable extended use, particles slightly beyond the cutoff radius are included in the neighbor list by extending the radius with a region called the "Verlet skin," which is also configurable in the 	\texttt{.yaml} file.
+Rebuilding neighbor lists is computationally expensive, so it is advantageous to reuse these lists for as many iterations as possible. Neighbor lists are generated for each particle, containing references to all particles within the cutoff range. To enable extended use, particles slightly beyond the cutoff radius are included in the neighbor list by extending the radius with a region called the "Verlet skin," which is configurable by the user.
 
 If particles move faster than half the defined Verlet skin distance, they may enter the cutoff region of other particles, invalidating the neighbor lists. Even if a single particle among hundreds of thousands exceeds this threshold, all neighbor lists must be rebuilt, incurring high computational costs. 
 
 This thesis investigates whether storing fast-moving particles in a buffer temporarily, instead of rebuilding the neighbor lists immediately, can reduce computational overhead. The objective is to evaluate the potential of this approach for future optimization and research.
 
-\section{Particle Buffer}
+This work builds upon the \href{https://github.com/AutoPas/AutoPas/tree/Dynamic-VL-merge}{\texttt{Dynamic-VL-Merge}} branch in AutoPas, referred to as the parent branch. All modifications and implementations were carried out in the \href{https://github.com/AutoPas/AutoPas/tree/Fast-Particle-Buffer}{Fast-Particle-Buffer} branch, which will be referred to as the child branch throughout this thesis.
 
-\subsection{Particle Buffer Mechanism}
+%=============================================================
+
+In this thesis, it is also used to store fast particles, which are defined as particles that move faster than half the skin size, as described in \ref{sec:verletlists}.
+
+
+\section{Particle Buffer Mechanism}
 
 In AutoPas, each iteration involves a call to the 	\texttt{updateContainer()} function, which performs several tasks, including:
 \begin{itemize}
     % \item Deleting halo particles.
     \item Removing particles that no longer belong in the container.
-    \item Checking whether the neighbor lists are invalid, based on criteria such as the 	\texttt{verlet-rebuild-frequency}, tuning iterations, or the presence of fast particles.
+    \item Checking whether the neighbor lists are invalid, based on criteria such as the \texttt{verlet-rebuild-frequency}, tuning iterations, or the presence of fast particles.
 \end{itemize}
 
 
-The particle buffer is implemented as a 	\texttt{std::vector<FullParticleCell<Particle>>}, where each thread has its own buffer, enabling efficient multithreading. This buffer temporarily stores particles that should not yet be added back to the container. A corresponding halo particle buffer stores particles not owned by the current AutoPas object.
+% The particle buffer is implemented as a 	\texttt{std::vector<FullParticleCell<Particle>>}, where each thread has its own buffer, enabling efficient multithreading. This buffer temporarily stores particles that should not yet be added back to the container. A corresponding halo particle buffer stores particles not owned by the current AutoPas object.
+
+% The particle buffer is structured as a vector of vectors, where each thread has a dedicated entry containing a list of particles. This allows for multithreading, as each thread manages its own buffer independently.
+
+
+% The function \texttt{checkNeighborListsInvalidDoDynamicRebuild()} is responsible for 
+% checking fast particles and is called within \texttt{updateContainer()}. It operates by iterating through owned particles in the container. For each particle, the displacement squared relative to the Verlet skin squared is calculated. Originally, if the displacement exceeds the threshold, the neighbor lists rebuild procedure is initiated. However, now instead of doing that, the fast particles are marked for buffering. A copy of the particle is added to the particle buffer mentioned in section 2, which will be from now on also referred to as the fast particle buffer - and the original is marked as deleted (aka turns into a dummy particle) to maintain neighbor list integrity. In the pseudo code below this chnage is highlighted with yellow.
+
+% In this way the cost of frequent neighbor list rebuilds  is mitigated by deferring the integration of fast particles until the next scheduled rebuild. During a rebuild, the buffer is cleared, and its particles are integrated into the neighbor lists, or the container depending on their current position.
 
 The function \texttt{checkNeighborListsInvalidDoDynamicRebuild()} is responsible for 
-checking fast particles and is called within \texttt{updateContainer()}. It operates by iterating through owned particles in the container. For each particle, the displacement squared relative to the Verlet skin squared is calculated. If the displacement exceeds the threshold, the particle is marked for buffering. A copy of the particle is added to the buffer, and the original is marked as deleted to maintain neighbor list integrity. Marked particles, referred to as "dummy particles," are ignored in computations and eventually removed from the container.
+checking fast particles and is called within \texttt{updateContainer()}. It operates by iterating through owned particles in the container and calculating their displacement squared relative to the Verlet skin squared. Originally, if the displacement exceeded the threshold, the neighbor list rebuild procedure was triggered. 
 
-This mechanism mitigates the cost of frequent neighbor list rebuilds by deferring the integration of fast particles until the next scheduled rebuild. During a rebuild, the buffer is cleared, and its particles are integrated into the neighbor lists.
+However, instead of immediately rebuilding, fast particles are now marked for buffering. A copy of the particle is added to the particle buffer, which was previously introduced in \ref{sec:interaction_comp}. From this point forward, this buffer will also be referred to as the fast particle buffer. Meanwhile, the original particle is marked as deleted (i.e., turned into a dummy particle) to maintain neighbor list integrity. In the pseudo-code (\ref{alg:neighborlists}) below, this modification is marked with blue.  
 
-\begin{lstlisting}[style=cppstyle]
-template <typename Particle>
-void LogicHandler<Particle>::checkNeighborListsInvalidDoDynamicRebuild() {
+By deferring the integration of fast particles until the next scheduled fixed rebuild, this approach reduces the cost of frequent neighbor list rebuilds. When a rebuild is triggered, the buffer is cleared, and its particles are integrated into either the neighbor lists or the container, depending on their current position.
 
- AUTOPAS_OPENMP(parallel reduction(or : _neighborListInvalidDoDynamicRebuild))
-  for (auto iter = this->begin(IteratorBehavior::owned | IteratorBehavior::containerOnly); iter.isValid(); ++iter) {
-    const auto distance = iter->calculateDisplacementSinceRebuild();
-    const double distanceSquare = utils::ArrayMath::dot(distance, distance);
 
-      if (distanceSquare >= halfSkinSquare) {
 
-      Particle& particle = *iter;
-      Particle particleCopy = particle;
+% \begin{lstlisting}[style=cppstyle]
+% template <typename Particle>
+% void LogicHandler<Particle>::checkNeighborListsInvalidDoDynamicRebuild() {
 
-       _particleBuffer[autopas_get_thread_num()].addParticle(particleCopy);
-        internal::markParticleAsDeleted(particle);
+%  AUTOPAS_OPENMP(parallel reduction(or : _neighborListInvalidDoDynamicRebuild))
+%   for (auto iter = this->begin(IteratorBehavior::owned | IteratorBehavior::containerOnly); iter.isValid(); ++iter) {
+%     const auto distance = iter->calculateDisplacementSinceRebuild();
+%     const double distanceSquare = utils::ArrayMath::dot(distance, distance);
 
-        _particleNumber++;
-      }
-  }
-  ....
-}
-\end{lstlisting}
+%       if (distanceSquare >= halfSkinSquare) {
 
-\subsection{Interaction Computation}
-During the simulation, interactions are computed in two distinct stages:
+%       Particle& particle = *iter;
+%       Particle particleCopy = particle;
 
-\begin{enumerate}
-    \item \textbf{Container Interactions}: The main function \texttt{computeInteractions(\&traversal)} calculates interactions for particles within the container. This involves iterating over particle pairs, triplets, or higher multiples, ensuring efficient resolution of regular particle interactions.
+%        _particleBuffer[autopas_get_thread_num()].addParticle(particleCopy);
+%         internal::markParticleAsDeleted(particle);
 
-    \item \textbf{Buffer Interactions}: Interactions for particles in the buffers are computed separately using the \texttt{computeRemainderInteractions(functor, newton3)} function. This step ensures that particles in the buffer interact correctly with container particles and among themselves. The following types of interactions are handled:
-    \begin{itemize}
-        \item \textbf{Particle Buffer \(\leftrightarrow\) Container}: Interactions between buffer particles and container particles.
-        \item \textbf{Halo Particle Buffer \(\rightarrow\) Container}: Interactions from halo particle buffers to container particles.
-        \item \textbf{Particle Buffer \(\leftrightarrow\) Particle Buffer}: Interactions among buffer particles.
-        \item \textbf{Halo Particle Buffer \(\rightarrow\) Particle Buffer}: Interactions from halo particle buffers to buffer particles.
-    \end{itemize}
-\end{enumerate}
+%         _particleNumber++;
+%       }
+%   }
+%   ....
+% }
+% \end{lstlisting}
 
-This two-stage computation ensures accurate interaction handling for all particles, including those in the buffers. Explicit handling of buffer particles allows the simulation to avoid unnecessary neighbor list rebuilds, maintaining computational efficiency.
+\vspace{40pt}
 
-\section{DeleteFunction}
-Initially, in \texttt{checkNeighborListsInvalidDoDynamicRebuild()}, particles were marked as deleted in the container, and a copy was created and added to the buffer. While this approach works for containers like Verlet Lists, as it preserves the integrity of the neighbor lists, it introduces overhead for containers such as LinkedCells. In the case of LinkedCells, every fast-moving particle results in the creation of a dummy particle within the container, depending on the simulation, potentially leading to a significant accumulation of these dummies until they are disregarded. 
+\begin{algorithm}
+\label{alg:neighborlists}
+  \begin{algorithmic}[1]
+  \Procedure{CheckNeighborListsInvalidDoDynamicRebuild}{}
+      \ForAll{owned particles in the container} \Comment{Iterate in parallel}
 
-This issue could become problematic when simulations involve combined usage of LinkedCells and VerletLists. To address this, the hypothesis was to minimize the overhead caused by dummy particles when using containers like LinkedCells.
+        \State 
+        \State distance $\gets$ particle.calculateDisplacementSinceRebuild()
+        \State distanceSquare $\gets$ dot(distance, distance) 
+
+        \State 
+        \If {distanceSquare $\geq$ halfSkinSquare} 
+            \State 
+            \State \textcolor{blue}{particleCopy $\gets$ copy(particle)}
+            \State \textcolor{blue}{particleBuffer[thread\_id].addParticle(particleCopy)}
+            \State \textcolor{blue}{markParticleAsDeleted(particle)}
+
+        \State 
+        \EndIf
+      \EndFor
+  \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+  
+
+
+
+%=============================================================
+
+\clearpage
+\section{Deletion of Particles}
+
+Initially, in \texttt{checkNeighborListsInvalidDoDynamicRebuild()}, as described in the previous subsection, particles were marked as deleted in the container, and a copy was created and added to the buffer.  
+
+While this approach works for containers like Verlet Lists, as it preserves the integrity of the neighbor lists, it introduces overhead for containers such as Linked Cells. In the case of Linked Cells, every fast-moving particle results in the creation of a dummy particle within the container, depending on the simulation, potentially leading to a significant accumulation of these dummies until they are disregarded. 
+
+This issue could become problematic when simulations involve combined usage of Linked Cells and Verlet Lists. To address this, the hypothesis was to minimize the overhead caused by dummy particles when using containers like Linked Cells.
 
 The available delete functions at the time were:
-\begin{lstlisting}[style=cppstyle]
-bool deleteParticle(size_t cellIndex, size_t particleIndex);
-bool deleteParticle(Particle &particle);
-\end{lstlisting}
+% \begin{lstlisting}[style=cppstyle]
+% bool deleteParticle(size_t cellIndex, size_t particleIndex);
+% bool deleteParticle(Particle &particle);
+% \end{lstlisting}
+\begin{equation}
+  \texttt{bool deleteParticle(size\_t cellIndex, size\_t particleIndex);}
+  \label{eq:deleteParticle1}
+\end{equation}
+\begin{equation}
+  \texttt{bool deleteParticle(Particle \&particle);}
+  \label{eq:deleteParticle2}
+\end{equation}
 
-These functions could not be directly used within the parallel loop. For certain containers, the delete operation employs a swap-delete mechanism, where the particle to be deleted is swapped with the last particle in the cell before being removed. This implementation, while efficient, is not thread-safe within a parallel loop.
+These functions could not be directly used within the parallel loop. For certain containers, the delete operation employs a swap-delete mechanism, where the particle to be deleted is swapped with the last particle in the assigned cell before being removed. This implementation, while efficient, is not thread-safe within a parallel loop.
 
-One proposed solution was to gather all particles marked for deletion into a separate buffer and process them sequentially after the parallel loop. However, this approach proved infeasible for the first function, as the indices of remaining particles change dynamically when deletions occur, making it too time-consuming to update and track these indices. For the second function, attempts to store references or pointers to the particles encountered issues when multiple particles were deleted from the same vector. This led to invalid references, as deletions could shift the positions of particles in memory.
+One proposed solution was to gather all particles marked for deletion into a separate buffer and process them sequentially after the parallel loop. However, this approach proved infeasible for function \ref{eq:deleteParticle1}, as the indices of remaining particles change dynamically when deletions occur, making it too time-consuming to update and track these indices. Whereas for function \ref{eq:deleteParticle2}, attempts to store references or pointers to the particles encountered issues when multiple particles were deleted from the same vector. This led to invalid references, as deletions could shift the positions of particles in memory.
 
 To resolve these issues, a new delete function was implemented:
-\begin{lstlisting}[style=cppstyle]
-deleteParticle(int id, size_t cellIndex);
-\end{lstlisting}
+\begin{equation}
+  \texttt{deleteParticle(int id, size\_t cellIndex);}
+  \label{eq:deleteParticle3}
+\end{equation}
+% \begin{lstlisting}[style=cppstyle]
+% deleteParticle(int id, size_t cellIndex);
+% \end{lstlisting}
 
-\subsection{Updated Code}
-The updated implementation ensures safe handling of deletions within a parallel loop by temporarily storing particle IDs and their cell indices in a buffer. After the loop, a sequential process iterates through this buffer to perform deletions:
+Since deletion is container-dependent, the new deletion function \ref{eq:deleteParticle3} was implemented for all containers available in AutoPas. As many containers share similarities in how deletion is handled, the implementation follows a common structure. Below are examples from two of these containers:  
 
-\begin{lstlisting}[style=cppstyle]
-template <typename Particle>
-void LogicHandler<Particle>::checkNeighborListsInvalidDoDynamicRebuild() {
 
-AUTOPAS_OPENMP(parallel reduction(or : _neighborListInvalidDoDynamicRebuild))
-  for (auto iter = this->begin(IteratorBehavior::owned | IteratorBehavior::containerOnly); iter.isValid(); ++iter) {
-    ...
-
-      if (distanceSquare >= halfSkinSquare) {
-
-        Particle& particle = *iter;
-        Particle particleCopy = particle;
-
-       _particleBuffer[autopas_get_thread_num()].addParticle(particleCopy);
-
-        size_t cellIndex = iter.getVectorIndex();
-        toDelete[autopas_get_thread_num()].push_back(std::make_tuple(particle.getID(), cellIndex));
-
-        _particleNumber ++;
-      }
-  }
-
-  for (const auto& t : toDelete) {
-    for (auto p : t) {
-      int id = std::get<0>(p);
-      size_t cellIndex = std::get<1>(p);
-      _containerSelector.getCurrentContainer().deleteParticle(id, cellIndex);
-    }
-  }
-
-  ....
-}
-\end{lstlisting}
-
-\subsection{Implementation Details}
-The new delete function was implemented in several container classes, including \texttt{DirectSum.h}, \texttt{LinkedCells.h}, \texttt{LinkedCellsReferences.h}, \texttt{VerletClusterLists.h}, \\ \texttt{VerletListsLinkedBase.h}, and \texttt{Octree.h}. Below are examples from two of these classes:
-
-\subsubsection{In 	\texttt{LinkedCells.h}}
+\subsubsection{In \texttt{LinkedCells.h}}
 The swap-delete method is used here to efficiently manage particle deletions:
-\begin{lstlisting}[style=cppstyle]
-bool deleteParticle(int id, size_t cellIndex) override {
-  auto &particleVec = this->_cells[cellIndex]._particles;
+\begin{algorithm}
+  \label{alg:deleteParticle}
+  \begin{algorithmic}[1]
+  \Procedure{DeleteParticle}{id, cellIndex}
+      \State particleVec $\gets$ cells[cellIndex].particles
+      % \Comment{Get reference to the particle vector}
+      
+      \ForAll{particle $\in$ particleVec}  
+          \If{particle.getID() = id}
+              \State isRearParticle $\gets$ (particle = last element in particleVec)
+              \State particle $\gets$ last element in particleVec
+              \State remove last element from particleVec
+              \State \Return not isRearParticle
+          \EndIf
+      \EndFor
+  \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
 
-  for (auto &particle : particleVec) {
-    if (particle.getID() == id) {
-      const bool isRearParticle = &particle == &particleVec.back();
 
-      particle = particleVec.back();
-      particleVec.pop_back();
+% \begin{lstlisting}[style=cppstyle]
+% bool deleteParticle(int id, size_t cellIndex) override {
+%   auto &particleVec = this->_cells[cellIndex]._particles;
 
-      return !isRearParticle;
-    }
-  }
-}
-\end{lstlisting}
+%   for (auto &particle : particleVec) {
+%     if (particle.getID() == id) {
+%       const bool isRearParticle = &particle == &particleVec.back();
 
-\subsubsection{In 	\texttt{VerletListsLinkedBase.h}}
+%       particle = particleVec.back();
+%       particleVec.pop_back();
+
+%       return !isRearParticle;
+%     }
+%   }
+% }
+% \end{lstlisting}
+
+\subsubsection{In \texttt{VerletListsLinkedBase.h}}
 Here, particles are marked as deleted to avoid interfering with the internal structures of the Verlet Lists:
-\begin{lstlisting}[style=cppstyle]
-bool deleteParticle(int id, size_t cellIndex) override {
-  auto &particleVec = _linkedCells.getCells()[cellIndex]._particles;
-  for (auto &particle : particleVec) {
-    if (particle.getID() == id) {
-      internal::markParticleAsDeleted(particle);
-      return false;
-    }
-  }
-}
-\end{lstlisting}
+\begin{algorithm}
+  \label{alg:deleteParticleMark}
+  \begin{algorithmic}[1]
+  \Procedure{DeleteParticle}{id, cellIndex}
+      \State particleVec $\gets$ linkedCells.getCells()[cellIndex].particles
+      % \Comment{Get reference to the particle vector}
+      
+      \ForAll{particle $\in$ particleVec}  
+          \If{particle.getID() = id}
+              \State markParticleAsDeleted(particle)
+              \State \Return false
+          \EndIf
+      \EndFor
+  \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
 
-The remaining implementations for other containers follow a similar structure. The full code can be found on \href{https://github.com/AutoPas/AutoPas/commit/d251b0ab8544a76f4e8150bf5e91c09d874d4f4c}{\texttt{GitHub}}. 
+
+% \begin{lstlisting}[style=cppstyle]
+% bool deleteParticle(int id, size_t cellIndex) override {
+%   auto &particleVec = _linkedCells.getCells()[cellIndex]._particles;
+%   for (auto &particle : particleVec) {
+%     if (particle.getID() == id) {
+%       internal::markParticleAsDeleted(particle);
+%       return false;
+%     }
+%   }
+% }
+% \end{lstlisting}
+
+The remaining implementations for other containers follow a similar structure. The full code can be found on \href{https://github.com/AutoPas/AutoPas/commit/d251b0ab8544a76f4e8150bf5e91c09d874d4f4c}{\texttt{GitHub}}\footnote{Commit ID: d251b0ab8544a76f4e8150bf5e91c09d874d4f4c}. 
+
+%================================================
+\subsection{Updated Code}
+
+The updated implementation of \texttt{checkNeighborListsInvalidDoDynamicRebuild()} handles deletions safely within its parallel loop by temporarily storing particle IDs and their cell indices in a buffer. After the loop, this buffer is iterated sequentially to perform deletions:
+
+\begin{algorithm}
+\label{alg:neighborlists}
+\begin{algorithmic}[1]
+\Procedure{CheckNeighborListsInvalidDoDynamicRebuild}{}
+    \ForAll{owned particles in the container} \Comment{Iterate in parallel}
+
+      \State 
+      \State distance $\gets$ particle.calculateDisplacementSinceRebuild()
+      \State distanceSquare $\gets$ dot(distance, distance) 
+
+      \State 
+      \If {distanceSquare $\geq$ halfSkinSquare} 
+          \State 
+          \State particleCopy $\gets$ copy(particle)
+          \State particleBuffer[thread\_id].addParticle(particleCopy)
+
+          \State cellIndex $\gets$ iter.getVectorIndex()
+          \State toDelete[thread\_id].push\_back((particle.getID(), cellIndex))
+          
+      \State 
+      \EndIf
+    \EndFor
+
+    \State 
+
+    \ForAll{thread $\in$ toDelete}
+        \ForAll{particle $\in$ thread}
+            \State id $\gets$ first element of particle
+            \State cellIndex $\gets$ second element of particle
+            \State containerSelector.getCurrentContainer().deleteParticle(id, cellIndex)
+        \EndFor
+    \EndFor
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 
-\section{CSV File}
+% \begin{lstlisting}[style=cppstyle]
+% template <typename Particle>
+% void LogicHandler<Particle>::checkNeighborListsInvalidDoDynamicRebuild() {
+
+% AUTOPAS_OPENMP(parallel reduction(or : _neighborListInvalidDoDynamicRebuild))
+%   for (auto iter = this->begin(IteratorBehavior::owned | IteratorBehavior::containerOnly); iter.isValid(); ++iter) {
+%     ...
+
+%       if (distanceSquare >= halfSkinSquare) {
+
+%         Particle& particle = *iter;
+%         Particle particleCopy = particle;
+
+%        _particleBuffer[autopas_get_thread_num()].addParticle(particleCopy);
+
+%         size_t cellIndex = iter.getVectorIndex();
+%         toDelete[autopas_get_thread_num()].push_back(std::make_tuple(particle.getID(), cellIndex));
+
+%         _particleNumber ++;
+%       }
+%   }
+
+%   for (const auto& t : toDelete) {
+%     for (auto p : t) {
+%       int id = std::get<0>(p);
+%       size_t cellIndex = std::get<1>(p);
+%       _containerSelector.getCurrentContainer().deleteParticle(id, cellIndex);
+%     }
+%   }
+
+%   ....
+% }
+% \end{lstlisting}
+
+
+
+\section{Simulation Data Logging}
 
 By enabling the CMake flag \texttt{LOG\_ITERATIONS}, the simulation generates a \texttt{.csv} file containing valuable information for each iteration. This data provides insights into the performance and configuration of the simulation. The header fields included in the file are as follows:
 
@@ -204,7 +330,7 @@ tuning[ns]
 
 
 
-Among these, the fields \textit{computeInteractions[ns]}, \textit{remainderTraversal[ns]}, and \textit{rebuildNeighborLists[ns]} are of particular importance for tracking the computational time spent on interaction calculations in the container and in the fast particle buffer.
+Among these, the fields \textit{computeInteractions[ns]}, \textit{remainderTraversal[ns]}, and \textit{rebuildNeighborLists[ns]} are of particular importance for tracking the computational time spent on interaction calculations in the container and in the buffers.
 
 To facilitate further analysis of performance, three additional fields were introduced:
 \begin{itemize}
@@ -213,4 +339,4 @@ To facilitate further analysis of performance, three additional fields were intr
     \item \textbf{particleBufferSize}: Indicates the size of the particle buffer.
 \end{itemize}
 
-These new fields allow us to quantify the behavior of fast particles, evaluate the efficiency of the buffer, and compare the number of fast particles with the total particles in the container. 
+These new fields allow us to evaluate the efficiency of the fast particle buffer, and study the flow and behavior of the fast particles better.

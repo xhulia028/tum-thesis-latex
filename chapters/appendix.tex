@@ -1,3 +1,20 @@
+\section{Understanding \texttt{.yaml} files} \label{app:yaml}
+Simulations in AutoPas are configured using parameters specified in a \texttt{.yaml} file, which defines the conditions of the simulation. The key fields relevant to this thesis are:
+
+\begin{verbatim}
+container                        : # List of containers to choose from
+verlet-rebuild-frequency         : # Frequency of neighbor list rebuilds
+verlet-skin-radius               : # Distance within which a particle is 
+                                   # stored in the neighbor list
+data-layout                      : # Data storage format (AoS or SoA)
+traversal                        : # List of traversals to choose from
+newton3                          : # Boolean value determining if Newton's 
+                                   # third law is enabled
+iterations                       : # Number of iterations
+\end{verbatim}
+
+All the \texttt{.yaml} files, used for every simulation, are available \href{https://github.com/xhulia028/GraphView}{\texttt{here}}.
+
 
 % ================== Freq vs Time =====================
 \begin{figure}[htbp]

@@ -2400,12 +2400,13 @@
     <bcf:citekey order="37" intorder="1">coolmuc2</bcf:citekey>
     <bcf:citekey order="38" intorder="1">coolmuc4</bcf:citekey>
     <bcf:citekey order="39" intorder="1">seckler2021autopas</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">gratl2022n</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">gall2023exploration</bcf:citekey>
     <bcf:citekey order="41" intorder="1">gratl2022n</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">seckler2021autopas</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">gratl2022n</bcf:citekey>
     <bcf:citekey order="43" intorder="1">seckler2021autopas</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">Maximilian_Praus_Thesis-1.pdf</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">seckler2021autopas</bcf:citekey>
     <bcf:citekey order="45" intorder="1">Maximilian_Praus_Thesis-1.pdf</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">Maximilian_Praus_Thesis-1.pdf</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
